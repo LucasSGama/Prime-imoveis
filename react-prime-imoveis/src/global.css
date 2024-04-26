@@ -1,6 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bellota Text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    background-color: #f7f7f7;
+}
+
+html, body{
+    font-family: "Bellota Text", sans-serif;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
+
+
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,8 +1,8 @@
-import logo from '../src/images/f7c62625-a487-4652-95bc-c5f4432cadeb.jpg';
-import arrow from "./images/3cf794fe42cd0b2c6d781e0e0dd6b4bb-removebg-preview.png"
-import "./global.css" 
+import logo from '../../images/f7c62625-a487-4652-95bc-c5f4432cadeb.jpg';
+import arrow from "../../images/3cf794fe42cd0b2c6d781e0e0dd6b4bb-removebg-preview.png"
+import "./styles-r.css" 
 
-export function App() {
+export function Register() {
   return <div className="container">
     <header>
       <img src={logo} alt="prime-imoveis" width="240px" />
@@ -29,15 +29,13 @@ export function App() {
         />
       </div>
 
-      <a href="">Esqueceu sua senha?</a>
-
       <button className="button">
         Se Conectar
       </button>
 
       <div className="footer">
-        <p>Ainda não tem uma conta?</p>
-        <a href="#">Crie uma conta</a>
+        <p> Você já tem uma conta?</p>
+        <a href="#">Acesse sua conta</a>
       </div>
     </form>
   </div>
