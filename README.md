@@ -7,3 +7,9 @@ Adaptar o do figma neles
 Comandos para instalar firebase
 npm install firebase
 npm install -g firebase-tools
+
+INSTALAR OS ICONS
+npm install react-icons --save
+
+ISNTALAR TODOS OS ICONS
+npm install @react-icons/all-files --save
