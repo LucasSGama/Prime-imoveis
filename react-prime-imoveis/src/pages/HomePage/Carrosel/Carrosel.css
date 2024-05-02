@@ -1,0 +1,13 @@
+.scrool-horizontal {
+    background-color: rgb(181, 175, 175);
+    display: flex;
+    gap: 125px;
+    padding: 15px;
+    width: 90%;
+    overflow-x: scroll;
+    left: 50%;
+    box-sizing: border-box;
+    margin: auto;
+    border-radius: 7px;
+}
+  

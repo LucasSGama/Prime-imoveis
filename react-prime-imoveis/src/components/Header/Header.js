@@ -9,7 +9,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Agora importando
 
 function Header() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary header">
       <Container>
         <div className="imagem">
           <img src={logo} alt="Logo" width="80px" height="80px"/>
