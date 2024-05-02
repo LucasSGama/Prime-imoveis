@@ -13,3 +13,6 @@ npm install react-icons --save
 
 ISNTALAR TODOS OS ICONS
 npm install @react-icons/all-files --save
+
+Instalar rotas
+npm install react-router-dom
