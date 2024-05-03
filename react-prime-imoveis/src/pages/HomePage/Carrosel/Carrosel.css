@@ -9,5 +9,11 @@
     box-sizing: border-box;
     margin: auto;
     border-radius: 7px;
+    cursor: grab; /* Define o cursor para uma mão aberta quando o mouse estiver sobre o carrossel */
+    user-select: none; /* Impede a seleção de texto enquanto arrasta o carrossel */
+
 }
-  
+
+.scrool-horizontal::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem */
+}
