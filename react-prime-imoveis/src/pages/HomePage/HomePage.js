@@ -17,7 +17,7 @@ export function HomePage() {
                 <img src={Banner} alt="A" className="img-fluid mx-auto" />
             </div>
 
-            <div className="blue-bar"><span>Coloque as informações</span></div>
+            <div className="blue-bar"><span className='Txt_ColoqueInformacoes'>Coloque as informações</span></div>
                     <br /><br /><br />
             
             <div className="container">

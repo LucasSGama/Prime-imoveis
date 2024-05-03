@@ -8,7 +8,7 @@
   align-items: center; /* Centraliza verticalmente os elementos filhos */
 }
 
-span {
+.Txt_ColoqueInformacoes {
   background-color: #29A6DE;
   border-radius: 20px;
   position: relative;
@@ -24,7 +24,7 @@ span {
       height: 3px; /* Altura da barra para telas menores */
   }
 
-  span {
+  .Txt_ColoqueInformacoes {
       font-size: 1.5rem; /* Tamanho da fonte para telas menores */
   }
 }
@@ -34,7 +34,7 @@ span {
       height: 2px; /* Altura da barra para telas pequenas */
   }
 
-  span {
+  .Txt_ColoqueInformacoes {
       font-size: 1.2rem; /* Tamanho da fonte para telas pequenas */
   }
 }

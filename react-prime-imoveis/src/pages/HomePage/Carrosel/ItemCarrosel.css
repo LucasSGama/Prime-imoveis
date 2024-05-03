@@ -1,4 +1,4 @@
-.descricao-podcast {
+.imagens-caixa {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(0, 0, 0);
     margin-top: 3px;
@@ -8,16 +8,20 @@
   
   .caixa-scrool-horizontal {
     background-color: lightblue;
+    height: 300px;
   }
   
   .descricao-podcast-texto {
-    margin-left: 1px;
+    color: black;
+    margin-left: 3px;
     margin-right: 1px;
-    overflow-y: scroll;
-    /* border: 1px solid black; */
-    height: 50px;
+    border: 1px solid black;
+    height: 115px;
     scrollbar-width: thin; /* Para navegadores que suportam a propriedade de largura da barra de rolagem */
     scrollbar-color: rgba(128, 128, 128, 0.5) #E8E7E7 ; /* Cor da barra de rolagem e cor do polegar */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para colocar o item no final vertical */
   }
 
   /* Estilos para navegadores baseados em WebKit (Chrome, Safari) */
@@ -33,14 +37,7 @@
 .descricao-podcast-texto::-webkit-scrollbar-track {
   background: black; /* Cor de fundo da barra de rolagem */
 }
-  
-  
-  
-  
-  
-  
-  
-  
+    
   .banner-menor {
     transition: opacity 0.5s ease;
   }
@@ -48,3 +45,13 @@
   .banner-menor:hover{
     opacity: 60%;
   } 
+
+.Acessar_item {
+  text-decoration: none;
+  /* border: 1px solid black; */
+  font-size: 14px;
+  display: flex;
+  align-self: flex-end; /* Coloca o elemento no final vertical */
+  justify-content: center;
+}
+
