@@ -29,7 +29,6 @@ export function HomePage() {
     
     return (
         <>
-            <Header/>
             <br /><br /><br /><br />
             <div className="d-flex justify-content-center">
                 <img src={Banner} alt="A" className="img-fluid mx-auto" />

@@ -1,8 +1,7 @@
-import logo from '../../images/f7c62625-a487-4652-95bc-c5f4432cadeb.jpg';
-import arrow from "../../images/3cf794fe42cd0b2c6d781e0e0dd6b4bb-removebg-preview.png"
-import "./styles-r.css" 
+import logo from '../../images/Logo-Prime-Prime_Prime.png';
+import "./Cadastro" 
 
-export function Register() {
+export function Cadastro() {
   return <div className="container">
     <header>
       <img src={logo} alt="prime-imoveis" width="240px" />
@@ -40,3 +39,5 @@ export function Register() {
     </form>
   </div>
 }
+
+export default Cadastro;

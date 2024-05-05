@@ -5,6 +5,7 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Agora importando de free-solid-svg-icons
+import { Link } from 'react-router-dom';
 
 
 function Header() {
@@ -15,10 +16,13 @@ function Header() {
           <img src={logo} alt="Logo" width="80px" height="80px"/>
         </div>
         {/* Adicionar o perfil aqui */}
+        <Nav.Link>
+             <Link to="/HomePage" className="Links">Home</Link>
+          </Nav.Link>
         <NavDropdown title="Perfil" id="basic-nav-dropdown">
           <NavDropdown.Item href="#acessar_perfil">Acessar Perfil</NavDropdown.Item>
-          <NavDropdown.Item href="#login">Login</NavDropdown.Item>
-          <NavDropdown.Item href="#cadastrar">Cadastrar</NavDropdown.Item>
+          <NavDropdown.Item><Link to="/LogarPage" className="Links">Login</Link></NavDropdown.Item>
+          <NavDropdown.Item><Link to="/Cadastro" className="Links">Cadastro</Link></NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#sair">Sair</NavDropdown.Item>
         </NavDropdown>

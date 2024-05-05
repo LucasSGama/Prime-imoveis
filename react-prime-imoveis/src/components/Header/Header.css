@@ -3,3 +3,13 @@
     width: 100%;
     z-index: 9999;
 }
+
+.Links {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s ease;
+}
+
+.Links:hover {
+    opacity: 50%;
+}
