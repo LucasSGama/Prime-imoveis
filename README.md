@@ -11,6 +11,9 @@ npm install -g firebase-tools
 INSTALAR OS ICONS
 npm install react-icons --save
 
+INSTALAR OS ICONS DO BOOTSTRAP-ICONS
+    npm install bootstrap-icons
+
 ISNTALAR TODOS OS ICONS
 npm install @react-icons/all-files --save
 

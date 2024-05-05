@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from "../../components/Header/Header"
+import Header from "../../components/Header/Header";
 import './HomePage.css';
 import Banner from '../../images/Banner-prime.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Agora importando de free-solid-svg-icons
-import logo from '../../images/Logo-Prime-Prime_Prime.png'
 import Carrosel from './Carrosel/Carrosel';
+import Footer from '../../components/Footer/Footer';
 
 
 export function HomePage() {
@@ -55,6 +55,8 @@ export function HomePage() {
             <Carrosel/>
             </div> 
             
+            <Footer/>
         </>
+
     )
 }

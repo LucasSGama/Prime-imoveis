@@ -14,16 +14,13 @@ function Header() {
         <div className="imagem">
           <img src={logo} alt="Logo" width="80px" height="80px"/>
         </div>
-        <NavDropdown title="Buscar Imóveis" id="collapsible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">
-            Another action
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        {/* Adicionar o perfil aqui */}
+        <NavDropdown title="Perfil" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#acessar_perfil">Acessar Perfil</NavDropdown.Item>
+          <NavDropdown.Item href="#login">Login</NavDropdown.Item>
+          <NavDropdown.Item href="#cadastrar">Cadastrar</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">
-            Separated link
-          </NavDropdown.Item>
+          <NavDropdown.Item href="#sair">Sair</NavDropdown.Item>
         </NavDropdown>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -37,7 +34,18 @@ function Header() {
             <Nav.Link href="#Favotitos">
                 <FontAwesomeIcon icon={faHeart} /> Meus Favoritos
             </Nav.Link>
-            <Nav.Link href="#Contato">Perfil</Nav.Link>
+            {/* Adicionar o dropdown aqui */}
+            <NavDropdown title="Buscar Imóveis" id="collapsible-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">
+            Another action
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">
+            Separated link
+          </NavDropdown.Item>
+        </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
