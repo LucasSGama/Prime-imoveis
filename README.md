@@ -19,3 +19,6 @@ npm install @react-icons/all-files --save
 
 Instalar rotas
 npm install react-router-dom
+
+INSTALAR O AXIOS (Serve para usar a API de estados do brasil do IBGE)
+npm install axios
