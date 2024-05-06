@@ -14,9 +14,9 @@ export function Footer() {
                 </div>
                 <div className="Direita_footer">
                 <div className="Redes_Sociais">
-                    <a href="#" className="Links_Redes_Sociais"><i className="bi bi-tiktok"></i> Tiktok</a>
+                    <a href="https://pt-br.facebook.com/" className="Links_Redes_Sociais"><i className="bi bi-tiktok"></i> Tiktok</a>
                     <a href="https://www.instagram.com/primeimoveis2015/" className="Links_Redes_Sociais"><i className="bi bi-instagram"></i> Instagram</a>
-                    <a href="#" className="Links_Redes_Sociais"><i className="bi bi-facebook"></i> Facebook</a>
+                    <a href="https://www.tiktok.com/pt-BR/" className="Links_Redes_Sociais"><i className="bi bi-facebook"></i> Facebook</a>
                 </div>
                 </div>
             </div>

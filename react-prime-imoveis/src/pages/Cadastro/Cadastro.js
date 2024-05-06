@@ -34,7 +34,7 @@ export function Cadastro() {
 
       <div className="footer">
         <p> Você já tem uma conta?</p>
-        <a href="#">Acesse sua conta</a>
+        {/* <a href="#">Acesse sua conta</a> */}
       </div>
     </form>
   </div>
