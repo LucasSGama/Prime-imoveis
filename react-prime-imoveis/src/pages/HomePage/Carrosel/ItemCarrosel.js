@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { faHeart as emptyHeart, faHeartbeat as filledHeart } from '@fortawesome/free-solid-svg-icons'; // Importando ícones de coração vazio e cheio
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';

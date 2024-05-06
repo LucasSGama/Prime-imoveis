@@ -6,9 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Agora importando de free-solid-svg-icons
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/LogarPage');
+  };
+
+  const handleCadastroClick = () => {
+    navigate('/Cadastro');
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary header">
       <Container>
@@ -17,12 +29,12 @@ function Header() {
         </div>
         {/* Adicionar o perfil aqui */}
         <Nav.Link>
-             <Link to="/HomePage" className="Links">Home</Link>
-          </Nav.Link>
+          <Link to="/" className="Links Home">Home</Link>
+        </Nav.Link>
         <NavDropdown title="Perfil" id="basic-nav-dropdown">
           <NavDropdown.Item href="#acessar_perfil">Acessar Perfil</NavDropdown.Item>
-          <NavDropdown.Item><Link to="/LogarPage" className="Links">Login</Link></NavDropdown.Item>
-          <NavDropdown.Item><Link to="/Cadastro" className="Links">Cadastro</Link></NavDropdown.Item>
+          <NavDropdown.Item onClick={handleLoginClick} className="Links Btn_Login">Login</NavDropdown.Item>
+          <NavDropdown.Item onClick={handleCadastroClick} className="Item_Teste"><Link to="/Cadastro" className="Links">Cadastro</Link></NavDropdown.Item>
           <NavDropdown.Divider />
           <NavDropdown.Item href="#sair">Sair</NavDropdown.Item>
         </NavDropdown>
@@ -40,16 +52,16 @@ function Header() {
             </Nav.Link>
             {/* Adicionar o dropdown aqui */}
             <NavDropdown title="Buscar Imóveis" id="collapsible-nav-dropdown">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">
-            Another action
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">
-            Separated link
-          </NavDropdown.Item>
-        </NavDropdown>
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

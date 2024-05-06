@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import ItemCarrosel from "./ItemCarrosel";
-import ImagemExemplo from "../../../images/Logo-Prime-Prime_Prime.png"
 import "./Carrosel.css"
 import imoveis from "../../../DB/Imóveis";
 

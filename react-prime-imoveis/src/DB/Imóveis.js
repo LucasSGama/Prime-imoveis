@@ -1,4 +1,3 @@
-import logo from '../images/Logo-Prime-Prime_Prime.png';
 import Apartamento_No_Centro from './Foto_Imóveis/Apartamento_No_Centro.jpeg'
 import Casa_De_Campo from './Foto_Imóveis/Casa_De_Campo.jpeg'
 import Casa_Na_Praia from './Foto_Imóveis/Casa_Na_Praia.jpeg'

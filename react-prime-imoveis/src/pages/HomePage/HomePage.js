@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Header from "../../components/Header/Header";
 import './HomePage.css';
 import Banner from '../../images/Banner-prime.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Agora importando de free-solid-svg-icons
 import Carrosel from './Carrosel/Carrosel';
-import Footer from '../../components/Footer/Footer';
 import axios from 'axios';
 
 
@@ -31,7 +29,7 @@ export function HomePage() {
         <>
             <br /><br /><br /><br />
             <div className="d-flex justify-content-center">
-                <img src={Banner} alt="A" className="img-fluid mx-auto" />
+                <img src={Banner} alt="Banner" className="img-fluid mx-auto" />
             </div>
 
             <div className="blue-bar"><span className='Txt_ColoqueInformacoes'>Coloque as informações</span></div>
@@ -73,7 +71,6 @@ export function HomePage() {
             <Carrosel/>
             </div> 
             
-            <Footer/>
         </>
 
     )
