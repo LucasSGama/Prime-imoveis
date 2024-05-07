@@ -7,15 +7,16 @@ import { getAnalytics } from "firebase/analytics";
 import Alert from 'react-bootstrap/Alert';
 import './Logar.css';
 import imagemTeste from '../../images/Imagem_ultra_prime.jpg';
+import Spinner from 'react-bootstrap/Spinner';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAMCviqLmTay3J4yEv-Xc1gLh0kZa9M0ec",
-  authDomain: "prime-imoveis-77d1d.firebaseapp.com",
-  projectId: "prime-imoveis-77d1d",
-  storageBucket: "prime-imoveis-77d1d.appspot.com",
-  messagingSenderId: "520048431287",
-  appId: "1:520048431287:web:4415225dbd32e9ae363d32",
-  measurementId: "G-XY4XT3ZBLM"
+    apiKey: "AIzaSyAMCviqLmTay3J4yEv-Xc1gLh0kZa9M0ec",
+    authDomain: "prime-imoveis-77d1d.firebaseapp.com",
+    projectId: "prime-imoveis-77d1d",
+    storageBucket: "prime-imoveis-77d1d.appspot.com",
+    messagingSenderId: "520048431287",
+    appId: "1:520048431287:web:4415225dbd32e9ae363d32",
+    measurementId: "G-XY4XT3ZBLM"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -26,6 +27,7 @@ export function LogarPage() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false); // Adicionado para controlar o estado de carregamento
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -45,6 +47,7 @@ export function LogarPage() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setLoading(true); // Mostrar spinner ao iniciar o processo de login
     
         try {
             const q = query(userCollectionRef, where("email", "==", email));
@@ -56,10 +59,15 @@ export function LogarPage() {
                 navigate("/HomePage");
             } else {
                 setError("Usuário não encontrado. Por favor, verifique suas credenciais.");
+                setLoading(false); // Reverter para o estado inicial após a verificação do banco de dados
+
             }
         } catch (error) {
             console.error("Erro ao fazer login:", error);
             setError("Erro ao fazer login. Por favor, tente novamente mais tarde.");
+            setLoading(false); // Reverter para o estado inicial após a verificação do banco de dados
+        } finally {
+            setLoading(false); // Reverter para o estado inicial após a verificação do banco de dados
         }
     };
     
@@ -107,10 +115,14 @@ export function LogarPage() {
                         <a className="Btn_EsqueceuSenha" href="https://www.youtube.com/watch?v=r-yKCf5XWL0&rco=1">Esqueceu a senha?</a>
                     </div>
                     <div className="EnviarFormulario">
-                        <button type="submit" className="Btn_EnviarFormulario">Enviar</button>
+                        {loading ? (
+                            <Spinner animation="border" variant="primary" className="Spinner" />
+                        ) : (
+                            <button type="submit" className="Btn_EnviarFormulario">Enviar</button>
+                        )}
                     </div>
                 </form>
-                {error && <Alert variant="danger">{error}</Alert>}
+                {error && <Alert variant="danger" className="Aviso_de_erro">{error}</Alert>}
                 <div className="Cadastre-se">
                     <p className="Txt_Cadastro">Não tem uma conta?<Link to="../Cadastro" className="Btn_Cadastro">Cadastre-se</Link></p>
                 </div>
