@@ -7,11 +7,11 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Agora importando de free-solid-svg-icons
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth'; // Adicione esta importação
 
-
-
-function Header() {
+export function Header() {
   const navigate = useNavigate();
+  const auth = getAuth(); // Obter a instância de autenticação do Firebase
 
   const handleLoginClick = () => {
     navigate('/LogarPage');
@@ -19,6 +19,15 @@ function Header() {
 
   const handleCadastroClick = () => {
     navigate('/Cadastro');
+  };
+
+  const handleLogoutClick = () => {
+    signOut(auth).then(() => {
+      // Redirecionar para a página de login após o logout
+      navigate('/LogarPage');
+    }).catch((error) => {
+      console.error("Erro ao fazer logout:", error);
+    });
   };
 
   return (
@@ -29,14 +38,14 @@ function Header() {
         </div>
         {/* Adicionar o perfil aqui */}
         <Nav.Link>
-          <Link to="/" className="Links Home">Home</Link>
+          <Link to="/HomePage" className="Links Home">Home</Link>
         </Nav.Link>
         <NavDropdown title="Perfil" id="basic-nav-dropdown">
           <NavDropdown.Item href="#acessar_perfil">Acessar Perfil</NavDropdown.Item>
           <NavDropdown.Item onClick={handleLoginClick} className="Links Btn_Login">Login</NavDropdown.Item>
           <NavDropdown.Item onClick={handleCadastroClick} className="Item_Teste"><Link to="/Cadastro" className="Links">Cadastro</Link></NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#sair">Sair</NavDropdown.Item>
+          <NavDropdown.Item onClick={handleLogoutClick}>Sair</NavDropdown.Item> {/* Adicione o onClick para o botão de logout */}
         </NavDropdown>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

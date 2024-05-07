@@ -11,13 +11,13 @@ export function App() {
   return ( 
     <Router>
       <div>
-        <Header />
+        {/* <Header /> */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/HomePage" element={<HomePage />} />
           <Route path="/LogarPage" element={<LogarPage />} />
           <Route path="/cadastro" element={<Cadastro />} />
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     </Router>
     // <HomePage/>

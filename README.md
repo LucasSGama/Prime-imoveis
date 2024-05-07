@@ -8,6 +8,10 @@ Comandos para instalar firebase
 npm install firebase
 npm install -g firebase-tools
 
+Biblioteca do firebase
+https://firebase.google.com/docs/web/setup?hl=pt#avaliable-libraries
+
+
 INSTALAR OS ICONS
 npm install react-icons --save
 
