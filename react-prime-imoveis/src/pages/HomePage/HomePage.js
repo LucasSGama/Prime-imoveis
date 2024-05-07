@@ -8,6 +8,7 @@ import axios from 'axios';
 import Header from '../../components/Header/Header';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Footer from '../../components/Footer/Footer';
+import SemLoginPage from '../SemLoginPage/SemLoginPage';
 
 export function HomePage() {
     const [estados, setEstados] = useState([]);
@@ -89,9 +90,7 @@ export function HomePage() {
                 <Footer/>
             </>
         ) : (
-            <div className="container">
-                <p>Você não está logado.</p>
-            </div>
+            <SemLoginPage/>
         )}
     </>
     )

@@ -1,0 +1,92 @@
+.SemLoginPage {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ConteudoSemLoginPage {
+    /* border: 1px solid black; */
+    width: 80%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+
+.DivImagem_SemLoginPage {
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+}
+
+.ImagemSemLoginPage {
+    width: 100%;
+    height: 100%;
+}
+
+.DivAviso_SemLoginPage {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.AvisoSemLoginPage {
+    color: red;
+    font-weight: bolder;
+    font-size: 1.7vw;
+    height: 100%;
+    background-color: transparent;
+    /* border: 2px solid red; */
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.DivCaminhoTelaLogin {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BtnEfetuarLogin {
+    font-size: 1.7vw;
+    /* border: 1px solid black; */
+    width: 40%;
+    height: 100%;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #88B8DA;
+    transition: 0.5s ease ;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+}
+
+.BtnEfetuarLogin:hover {
+    border-radius: 20px 0 20px 0;
+    background-color: #29A6DE;
+}
+
+@media only screen and (min-width: 768px) {
+    .ConteudoSemLoginPage {
+        width: 50%;
+    }
+}
