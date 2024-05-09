@@ -147,13 +147,10 @@ export function Cadastro() {
                             )}
                         </div>
                         <br />
-                        <div className="Entrar">
-                            <p className="Txt_Login">Já tem uma conta?<Link to="/LogarPage" className="Btn_Login">Login</Link></p>
-                        </div>
                         {/* Exibição da mensagem de erro após tentativa de cadastro */}
                         {latestError && <Alert variant="danger" className="Aviso_de_erro_cadastro">{latestError}</Alert>}
-                        <div className="Cadastre-se">
-                        <p className="Txt_Cadastro">Não tem uma conta?<Link to="../Cadastro" className="Btn_Cadastro">Cadastre-se</Link></p>
+                        <div className="Entrar-se">
+                        <p className="Txt_Login">Já tem uma conta?<Link to="../LogarPage" className="Btn_Login">Login</Link></p>
                     </div>
                     <div className="Login_Google">
                         <p>Logar também com:</p>

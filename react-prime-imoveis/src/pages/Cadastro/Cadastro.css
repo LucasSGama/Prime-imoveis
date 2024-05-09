@@ -143,6 +143,11 @@ body {
     font-size: 20px;
 }
 
+.Txt_Login {
+    font-size: 30px;
+
+}
+
 .Txt_Login .Btn_Login {
     margin-left: 10px;
     text-decoration: none;
@@ -233,6 +238,10 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 0;
+    }
+    .Txt_Login {
+        font-size: 20px;
+    
     }
   }
   

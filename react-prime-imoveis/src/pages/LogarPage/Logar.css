@@ -166,6 +166,10 @@ body {
     font-size: 20px;
 }
 
+.Txt_Cadastro {
+    font-size: 30px;
+}
+
 .Txt_Cadastro .Btn_Cadastro {
     margin-left: 10px;
     text-decoration: none;
@@ -255,6 +259,9 @@ body {
         align-items: center;
         gap: 0;
     }
+    .Txt_Cadastro {
+        font-size: 20px;
+    }    
   }
   
   .Inputs_senha i {
