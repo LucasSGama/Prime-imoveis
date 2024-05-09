@@ -1,4 +1,4 @@
-.scrool-horizontal {
+.Container_Resultado_Filtro {
     background-color: rgb(181, 175, 175);
     display: flex;
     gap: 125px;
@@ -7,14 +7,16 @@
     overflow-x: scroll;
     left: 50%;
     box-sizing: border-box;
+    user-select: none; /* Impede a seleção de texto enquanto arrasta o carrossel */
+    flex-wrap: wrap; /* Move os itens para a próxima linha quando o espaço horizontal é ultrapassado */
+    overflow-y: hidden; /* Esconde a barra de rolagem vertical */
     margin: auto;
     border-radius: 7px;
     cursor: grab; /* Define o cursor para uma mão aberta quando o mouse estiver sobre o carrossel */
     user-select: none; /* Impede a seleção de texto enquanto arrasta o carrossel */
+    justify-content: center;
 }
 
-.scrool-horizontal::-webkit-scrollbar {
+.Container_Resultado_Filtro::-webkit-scrollbar {
     display: none; /* Esconde a barra de rolagem */
 }
-
-

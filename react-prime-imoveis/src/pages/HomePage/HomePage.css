@@ -65,7 +65,53 @@
   .banner-menor {
     transition: opacity 0.5s ease;
   }
+
+  .caixa-scrool-horizontal {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    height: 230px;
+    background-color: rgb(129, 128, 128);
+    border-radius: 7px;
+    border: 3px solid black;
+  }
   
+  .descricao-podcast {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 3px;
+    text-decoration: none;
+  }
+  
+  .descricao-podcast-texto {
+    margin-left: 3px;
+  }
+  
+  .banner-menor {
+    transition: opacity 0.5s ease;
+  }
+  
+  .caixa-filtros {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 230px;
+    background-color: rgb(129, 128, 128);
+    border-radius: 7px;
+    border: 3px solid black;
+  }
+  
+  .descricao-item-filtros {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 3px;
+    text-decoration: none;
+  }
+  
+
+  .banner-menor-filtros {
+    transition: opacity 0.5s ease;
+  }
 
 
   .Tipo_De_Compra {

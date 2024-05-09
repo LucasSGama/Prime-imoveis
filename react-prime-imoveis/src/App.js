@@ -17,7 +17,7 @@ export function App() {
         <Routes>
           <Route path="/HomePage" element={<HomePage />} />
           <Route path="/LogarPage" element={<LogarPage />} />
-          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/Cadastro" element={<Cadastro />} />
           <Route path="/SemLoginPage" element={<SemLoginPage />} /> {/* Adicione a rota para SemLoginPage */}
         </Routes>
         {/* <Footer/> */}

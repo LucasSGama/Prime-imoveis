@@ -184,7 +184,7 @@ body {
 }
 
 .Login_Google p{
-    font-size: 2vw;
+    font-size: 2.5vw;
 }
 
 .Fundo_Google {
@@ -236,7 +236,7 @@ body {
         height: 200px;
     }
     .Login_Google p{
-        font-size: 3vw;
+        font-size: 4vw;
     }
   }
 
@@ -257,3 +257,23 @@ body {
     }
   }
   
+  .Inputs_senha i {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: 1px solid black;
+  }
+
+  .olho-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .Input_senha_container {
+    position: relative;
+  }

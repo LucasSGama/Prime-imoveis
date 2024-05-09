@@ -8,7 +8,7 @@ import Alert from 'react-bootstrap/Alert';
 import Spinner from 'react-bootstrap/Spinner';
 import imagemTeste from '../../images/Imagem_ultra_prime.jpg';
 import './Logar.css';
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAMCviqLmTay3J4yEv-Xc1gLh0kZa9M0ec",
@@ -31,6 +31,7 @@ export function LogarPage() {
     const [latestError, setLatestError] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
     
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -119,25 +120,32 @@ export function LogarPage() {
                                     className="Input_Inserir"
                                     id="Input_Email"
                                     placeholder="@gmail.com"
+                                    required
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 ></input>
                             </div>
                             <div className="Inputs_senha">
-                                <label>Senha</label>
+                            <label>Senha</label>
+                            <div className="Input_senha_container">
                                 <input
-                                    type="password"
-                                    className="Input_Inserir"
-                                    id="Input_Senha"
-                                    placeholder="Insira sua senha"
-                                    value={senha}
-                                    onChange={(e) => setSenha(e.target.value)}
-                                ></input>
+                                type={showPassword ? "text" : "password"}
+                                className="Input_Inserir"
+                                id="Input_Senha"
+                                required
+                                placeholder="Insira sua senha"
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
+                                />
+                                <div className="olho-icon" onClick={() => setShowPassword(!showPassword)}>
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </div>
+                            </div>
                             </div>
                         </div>
                         <div className="Opcoes_adicionais">
                             <div className="LembrarDeMim">
-                                <input type="checkbox"></input>
+                                <input type="checkbox" checked disabled></input>
                                 <label>Lembrar de mim</label>
                             </div>
                             <a className="Btn_EsqueceuSenha" onClick={handleResetPassword}>Esqueceu a senha?</a>
@@ -149,13 +157,11 @@ export function LogarPage() {
                                 <button type="submit" className="Btn_EnviarFormulario">Enviar</button>
                             )}
                         </div>
-                    </form>
                     {/* Exibição da mensagem de erro após tentativa de login */}
                     {latestError && <Alert variant="danger" className="Aviso_de_erro">{latestError}</Alert>}
                     {/* Exibição da mensagem de sucesso ou erro após enviar email de redefinição */}
                     {resetPasswordMessage && <Alert variant="info" className="Aviso_de_info">{resetPasswordMessage}</Alert>}
                     {resetPasswordError && <Alert variant="danger" className="Aviso_de_erro">{resetPasswordError}</Alert>}
-                    <div className="Opcoes_adicionais"></div>
                     <div className="Cadastre-se">
                         <p className="Txt_Cadastro">Não tem uma conta?<Link to="../Cadastro" className="Btn_Cadastro">Cadastre-se</Link></p>
                     </div>
@@ -165,6 +171,7 @@ export function LogarPage() {
                             <a href="#" onClick={signInWithGoogle}><i className="bi bi-google"></i></a>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </>
