@@ -41,7 +41,6 @@ export function Cadastro() {
             // Se o login for bem-sucedido, você pode redirecionar o usuário para a página de login ou para onde desejar
             navigate("/LogarPage");
         } catch (error) {
-            console.error("Erro ao fazer login com Google:", error.message);
             setLatestError("Erro ao fazer login com Google. Por favor, tente novamente mais tarde.");
         } finally {
             setLoading(false);

@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import ResultadoFIltros from './ResultadoFIltros/ResultadoFIltros';
 
+
 export function HomePage() {
     const [tipoCompra, setTipoCompra] = useState("Nenhum");
     const [tipoResidencia, setTipoResidencia] = useState("Nenhum")
@@ -25,10 +26,13 @@ export function HomePage() {
         // Use onAuthStateChanged para verificar o estado de autenticação do usuário
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
+                console.log("Usuário logado:", user);
                 // Se o usuário estiver autenticado, definir loggedIn como true
                 setLoggedIn(true);
             } else {
                 // Se o usuário não estiver autenticado, definir loggedIn como false e redirecioná-lo para a página de login
+                console.log("Nenhum usuário logado");
+
                 setLoggedIn(false);
                 navigate("/SemLoginPage");
             }
