@@ -120,6 +120,7 @@ body {
 }
 
 .Btn_EsqueceuSenha {
+    cursor: pointer;
     text-decoration: none;
     font-size: 20px;
 }
@@ -160,6 +161,7 @@ body {
     margin-bottom: 10px;
 }
 
+
 .Cadastre-se {
     font-size: 20px;
 }
@@ -176,9 +178,9 @@ body {
 .Login_Google {
     /* border: 1px solid black; */
     display: flex;
-    gap: 20px;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .Login_Google p{

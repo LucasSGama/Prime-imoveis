@@ -26,3 +26,7 @@ npm install react-router-dom
 
 INSTALAR O AXIOS (Serve para usar a API de estados do brasil do IBGE)
 npm install axios
+
+INSTALAR OS PACOTES DE AUTH E GOOGLE-SIGNIN
+npm install @react-native-firebase/auth @react-native-google-signin/google-signin
+
