@@ -5,14 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import Carrosel from './Carrosel/Carrosel';
 import axios from 'axios';
-import Header from '../../components/Header/Header';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import Footer from '../../components/Footer/Footer';
-import SemLoginPage from '../SemLoginPage/SemLoginPage';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header';
 
 export function HomePage() {
     const [estados, setEstados] = useState([]);
     const [loggedIn, setLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const auth = getAuth(); // Obter a instância de autenticação do Firebase
@@ -23,8 +24,9 @@ export function HomePage() {
                 // Se o usuário estiver autenticado, definir loggedIn como true
                 setLoggedIn(true);
             } else {
-                // Se o usuário não estiver autenticado, definir loggedIn como false
+                // Se o usuário não estiver autenticado, definir loggedIn como false e redirecioná-lo para a página de login
                 setLoggedIn(false);
+                navigate("/SemLoginPage");
             }
         });
         
@@ -40,24 +42,22 @@ export function HomePage() {
         fetchEstados();
 
         return () => unsubscribe();
-    }, []);
+    }, [navigate]);
 
     return (
         <>
-        {loggedIn ? (
-            <>
-                <Header />
-                <br /><br /><br /><br />
-                <div className="d-flex justify-content-center">
-                    <img src={Banner} alt="Banner" className="img-fluid mx-auto" />
+            <Header/>
+            <br /><br /><br /><br />
+            <div className="d-flex justify-content-center">
+                <img src={Banner} alt="Banner" className="img-fluid mx-auto" />
+            </div>
+            <div className="blue-bar"><span className='Txt_ColoqueInformacoes'>Coloque as informações</span></div>
+            <br /><br /><br />
+            <div className="container">
+                <div className="Form-Filtro d-flex justify-content-center">
+                    <p className='Tipo_De_Compra'>Aplique seus filtros</p>
                 </div>
-                <div className="blue-bar"><span className='Txt_ColoqueInformacoes'>Coloque as informações</span></div>
-                <br /><br /><br />
-                <div className="container">
-                    <div className="Form-Filtro d-flex justify-content-center">
-                        <p className='Tipo_De_Compra'>Aplique seus filtros</p>
-                    </div>
-                    <form action="" className='Formulario_Filtro'>
+                <form action="" className='Formulario_Filtro'>
                     <select name="Tipo_de_Compra" className='Filter' id="Tipo_de_Compra">
                         <option className='Opcoes' value="Nenhum">Nenhum</option>
                         <option className='Opcoes' value="Aluguel">Aluguel</option>
@@ -71,27 +71,23 @@ export function HomePage() {
                     <select name="Estados" className='Filter' id="Estados">
                         <option className='Opcoes' value="Nenhum">Nenhum</option>
                         {estados.map(estado => (
-                        <option key={estado.id} className='Opcoes' value={estado.sigla}>{estado.nome}</option>
-                    ))}
+                            <option key={estado.id} className='Opcoes' value={estado.sigla}>{estado.nome}</option>
+                        ))}
                     </select>
                     <button type="submit" className='Btn_Pesquisar_Filtros'>Pesquisar</button>
-                    </form>
-                </div>
+                </form>
+            </div>
 
-                <br />
-                <div className="blue-bar"></div>
-                <br /><br />
-                <div className="container">
-                    <div className='Carrosel'>
-                        <h1>Populares<FontAwesomeIcon icon={faHeart} /></h1>
-                    </div>
-                    <Carrosel />
+            <br />
+            <div className="blue-bar"></div>
+            <br /><br />
+            <div className="container">
+                <div className='Carrosel'>
+                    <h1>Populares<FontAwesomeIcon icon={faHeart} /></h1>
                 </div>
-                <Footer/>
-            </>
-        ) : (
-            <SemLoginPage/>
-        )}
-    </>
-    )
+                <Carrosel />
+            </div>
+            <Footer />
+        </>
+    );
 }
