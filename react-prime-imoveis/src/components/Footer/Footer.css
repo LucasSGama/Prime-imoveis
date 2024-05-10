@@ -28,21 +28,41 @@ footer {
 .Esquerda_footer {
     /* position: relative; */
     /* bottom: 300px; */
-    /* border: 1px solid black; */
+    border: 1px solid black;
     width: 50%;
     align-items: center;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-
-.Titulo-footer {
-    margin-top: 10px;
-    font-weight: bolder;
-    font-size: 3vw;
-    /* border: 1px solid black; */
+.Entrar_em_contato {
+    border: 1px solid black;
+    width: 60%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: rgba(128, 128, 128, 0.5); /* Cinza com 50% de opacidade */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    cursor: pointer;
+    transition: 0.5s ease;
+    padding: 10px;
 }
+
+.Entrar_em_contato p {
+    color: black;
+    opacity: 1;
+}
+
+.Entrar_em_contato:hover {
+    background-color: rgba(128, 128, 128, 0.7); /* Cinza com 50% de opacidade */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+    transform: scale(1.1);
+}
+
+
 
 .footer-logo {
     margin-right: 110px;
@@ -85,23 +105,38 @@ footer {
 }
 
 /* Media query para telas menores que o desktop */
-@media (max-width: 991.98px) {
+@media (max-width: 977.98px) {
     /* Estilos específicos para telas menores que o desktop */
-    .Titulo-footer {
-        position: relative;
-        width: 100vw;
-        text-align: center;
-        margin-top: 30px;
-        font-size: 3.5vw;
-        margin-left: 40px;
-    }
 
     .Redes_Sociais {
-        padding-left: 10px;
+        padding-left: 30px;
     }
     
     .Links_Redes_Sociais {
-        font-size: 3vw;
+        font-size: 30px;
+    }
+    .Redes_Sociais {
+        width: 60%;
+    }
+  }
+
+  @media (max-width: 677.98px) {
+    .Links_Redes_Sociais {
+        font-size: 20px;
+    }
+    
+    .Redes_Sociais {
+        width: 70%;
+    }
+
+    .Entrar_em_contato {
+        width: 90%;
+    }
+  }
+
+  @media (max-width: 437.98px) {
+    .Links_Redes_Sociais {
+        font-size: 15px;
     }
   }
 

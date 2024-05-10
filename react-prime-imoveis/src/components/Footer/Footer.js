@@ -1,16 +1,25 @@
 import React from "react";
 import './Footer.css';
 import background_footer from '../../images/Background-footer-prime-prime.png';
-import footer_logo from '../../images/Logo-Prime-Prime_Prime.png'
+// import footer_logo from '../../images/Logo-Prime-Prime_Prime.png'
+import { useNavigate } from 'react-router-dom';
+
 
 export function Footer() {
+    const navigate = useNavigate()
+    
+    const IrParatelaDeContato = () => {
+        navigate('/ContatoPage')
+    }
     return (
         <footer>
             <img src={background_footer} className="background_footer" alt="Background_Footer"></img>
             <div className="Conteudo_footer">
+                {/* <h1>Contatos</h1> */}
                 <div className="Esquerda_footer">
-                    <h1 className="Titulo-footer">Siga o Prime nas redes sociais</h1>
-                    <img src={footer_logo} className="footer-logo" alt="Footer_Logo"></img>
+                        <div className="Entrar_em_contato">
+                            <p>Mande mensagem para o suporte!</p>
+                        </div>
                 </div>
                 <div className="Direita_footer">
                 <div className="Redes_Sociais">
