@@ -14,6 +14,8 @@ export function ContatoPage() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [showSuccessAlert, setShowSuccessAlert] = useState(false);
     const [showErrorAlert, setShowErrorAlert] = useState(false);
+    const [email, setEmail] = useState('');
+
 
     useEffect(() => {
         const auth = getAuth(); // Obter a instância de autenticação do Firebase
@@ -24,6 +26,8 @@ export function ContatoPage() {
                 console.log("Usuário logado:", user);
                 // Se o usuário estiver autenticado, definir loggedIn como true
                 setLoggedIn(true);
+                setEmail(user.email); // Set the email state variable to the user's email
+
             } else {
                 // Se o usuário não estiver autenticado, definir loggedIn como false e redirecioná-lo para a página de login
                 console.log("Nenhum usuário logado");
@@ -108,7 +112,7 @@ export function ContatoPage() {
                                 </div>
                                 <div className="LayoutsInputsGeral LayoutValorEmail">
                                     <label className="LabelsTelaContato LabelValorEmail">Email:</label>
-                                    <input className="InputsTelaContato" name="email" required/>
+                                    <input className="InputsTelaContato" name="email" value={email} required/>
                                 </div>
                                 <div className="LayoutsInputsGeral LayoutValorProblema">
                                     <label className="LabelsTelaContato LabelValorProblema">Como podemos ajudar?</label>
