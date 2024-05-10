@@ -17,7 +17,7 @@ export function Footer() {
             <div className="Conteudo_footer">
                 {/* <h1>Contatos</h1> */}
                 <div className="Esquerda_footer">
-                        <div className="Entrar_em_contato">
+                        <div className="Entrar_em_contato" onClick={IrParatelaDeContato}>
                             <p>Mande mensagem para o suporte!</p>
                         </div>
                 </div>

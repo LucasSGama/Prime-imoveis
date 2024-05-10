@@ -69,7 +69,7 @@ export function HomePage() {
             <div className="d-flex justify-content-center">
                 <img src={Banner} alt="Banner" className="img-fluid mx-auto" />
             </div>
-            <div className="blue-bar"><span className='Txt_ColoqueInformacoes'>Coloque as informações</span></div>
+            <div className="blue-bar"><span className='Txt_ColoqueInformacoes'>Busque imóveis</span></div>
             <br /><br /><br />
             <div className="container">
                 <div className="Form-Filtro d-flex justify-content-center">
