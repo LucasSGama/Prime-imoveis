@@ -1,0 +1,175 @@
+.topo-azul-contato {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(41, 166, 222, 0.6); /* 0.9 define a opacidade */
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+
+.TXT_titulo_contato {
+    color: white;
+    margin-left: 10px;
+}
+
+.TXT_titulo_contato span {
+    color: #3A6BA4;
+}
+
+.Corpo_Contato {
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* height: 100vh; */
+
+    /* height: 65vh; */
+}
+
+.Esquerda_Corpo_Contato {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    align-items: center;
+}
+
+.Endereco_contato {
+    padding-top: 20px;
+    display: flex;
+    /* border: 1px solid black; */
+    /* align-items: center; */
+    flex-direction: column;
+    gap: -10px;
+}
+
+.Endereco_GoogleMaps {
+    /* border: 1px solid black; */
+    width: 140%;
+    height: 400px;
+}
+
+.MapaGoogle {
+    width: 100%;
+    height: 100%;
+}
+
+.Direita_Corpo_Contato {
+    /* border: 1px solid black; */
+    width: 40%;
+    height: 530px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.Deixar_Mensagem_Contato {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    align-items: center;
+    height: 100%;
+    background-color: #29A6DE;
+    border-radius: 10px;
+    border-radius: 10px;
+}
+
+.Titulo_form_msg_contato {
+    color: white;
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.Meio_formulario_contato {
+    display: flex;
+    padding-top: 20px;
+    /* border: 1px solid black; */
+    width: 100%;
+    justify-content: center;
+}
+
+.ValoresInputsContato {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* border: 1px solid black; */
+    width: 90%;
+}
+
+.LayoutsInputsGeral {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+}
+
+.InputsTelaContato {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(232, 244, 250, 0.8); /* 0.9 define a opacidade */
+}
+
+.LabelsTelaContato {
+    color: black;
+    font-size: 20px;
+}
+
+.inputValorProblema {
+    height: 100px;
+    border: 1px solid black;
+}
+
+.Final_formulario_contato {
+    /* border: 1px solid; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+}
+
+.Aviso_de_erro_Contato {
+    width: 90%;
+}
+
+.Final_formulario_contato button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    width: 30%;
+    height: 30%;
+    background-color: #B2FFFF; /* Fundo ciano claro */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Transição suave */
+}
+
+.Final_formulario_contato button:hover {
+    background-color: #8ED6FF; /* Altera o fundo ao passar o mouse */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3); /* Ajusta a sombra ao passar o mouse */
+}
+
+@media (max-width: 992px) {
+    .Corpo_Contato {
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        /* border-radius: 1px solid black; */
+    }
+    .Direita_Corpo_Contato {
+        width: 70%;
+    }
+
+    .Endereco_GoogleMaps {
+        /* border: 1px solid black; */
+        width: 100%;
+        height: 300px;
+    }
+    
+
+    /* .MapaGoogle {
+        width: 400px;
+    } */
+}
