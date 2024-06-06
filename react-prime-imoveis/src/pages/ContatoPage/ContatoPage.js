@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { Navigate } from "react-router-dom";
 import './ContatoPage.css';
 import MapaGoogle from "./MapaGoogle";
 import { initializeApp } from "firebase/app";
@@ -33,7 +34,7 @@ export function ContatoPage() {
                 console.log("Nenhum usuário logado");
 
                 setLoggedIn(false);
-                navigate("/SemLoginPage");
+                Navigate("/SemLoginPage");
             }
         });
     })
