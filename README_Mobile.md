@@ -13,4 +13,11 @@ npx expo install --fix
 # Comando para verificar se tem algum erro nas dependências do expo
 npx expo-doctor
 
+# Instalando os icons para usar do react native
+npm install --save react-native-vector-icons
+npx react-native link react-native-vector-icons
+
+
+# Instalando a biblioteca react-navigation para navegação entre telas
+npm install @react-navigation/native @react-navigation/stack
 
