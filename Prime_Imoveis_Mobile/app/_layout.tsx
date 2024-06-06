@@ -2,13 +2,13 @@
 import React from 'react';
 import Index from './index';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
 
 export default function RootLayout() {
   return (
+    
     <Index/>
   );
 }

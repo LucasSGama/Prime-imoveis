@@ -11,7 +11,7 @@ export default function Login() {
     
   return (
     <SafeAreaView style={styles.containerLogin}>
-
+    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
         {/* ++ PARTE DE CIMA DO LOGIN */}
       <View style={styles.loginTopo}>
         <View style={styles.loginTopoImagem}>

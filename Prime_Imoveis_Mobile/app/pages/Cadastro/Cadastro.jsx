@@ -11,7 +11,6 @@ export default function Cadastro() {
 
   return (
     <SafeAreaView style={styles.containerCadastro}>
-
         {/* ++ PARTE DE CIMA DO CADASTRO */}
       <View style={styles.cadastroTopo}>
         <View style={styles.cadastroTopoImagem}>
