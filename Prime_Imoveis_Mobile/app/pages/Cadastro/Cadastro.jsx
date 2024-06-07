@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { View, Image, Text, TextInput, Button, SafeAreaView, ScrollView} from 'react-native';
+import { View, Image, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
 import styles from "./CadastroCSS"
 import ImagemTopoCadastro from "../../../Image/Mulher_Abrindo_Porta_Prime.png"
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -113,7 +113,7 @@ export default function Cadastro() {
                         placeholderTextColor="gray"
                         placeholder="Insira sua Senha"
                     />
-                    <Icon name={showPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: 51, right: 15 }} onPress={handleShowPassword} />
+                    <Icon name={showPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: '60%', right: 15 }} onPress={handleShowPassword} />
                 </View>
                 {/* -- INPUTS EMAIL */}
                 
@@ -127,17 +127,16 @@ export default function Cadastro() {
                         onChangeText={handleConfirmSenhaChange}
                         placeholder="Confirme sua senha"
                     />
-                    <Icon name={showConfirmPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: 51, right: 15 }} onPress={handleShowConfirmPassword} />
+                    <Icon name={showConfirmPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: '60%', right: 15 }} onPress={handleShowConfirmPassword} />
                 </View>
                 {/* -- INPUTS CONFIRMA SENHA */}
                 </View>
 
                 {/* ++ BOTÃO PARA CADASTRAR */}
-                <View style={styles.CadastroMeioBotão}>
-                    <Button
-                    title="Cadastrar"
-                    // onPress={handleCadastrar}
-                    />
+                <View style={styles.CadastroLayoutMeioBotão}>
+                        <TouchableOpacity style={styles.CadastroMeioBotão}>
+                            <Text style={styles.CadastroMeioBotaoText}>Cadastrar</Text>
+                        </TouchableOpacity>
                 </View>
                 {/* -- BOTÃO PARA CADASTRAR */}
 
