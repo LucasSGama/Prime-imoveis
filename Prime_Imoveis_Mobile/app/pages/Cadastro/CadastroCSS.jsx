@@ -160,9 +160,12 @@ const styles = StyleSheet.create({
     CadastroGoToLogin: {
         // borderWidth: 1, // Largura da borda
         // borderColor: 'black', // Cor da borda
-        width: '100%',
+        width: '70%',
         alignItems: 'center',
         paddingVertical: '1%',
+        borderWidth: 0,
+        borderTopWidth: 1,
+        borderTopColor: 'gray',
     },
     CadastroTextoGoToLogin: {
         fontSize: 15,
@@ -178,6 +181,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         gap: 5,
+        // borderWidth: 0,
+        // borderTopWidth: 1,
+        // borderTopColor: 'gray',
     },
     CadastroTextAuthGoogle: {
         fontSize: 15,
