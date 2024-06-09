@@ -15,7 +15,7 @@ npx expo-doctor
 
 # Instalando os icons para usar do react native
 npm install --save react-native-vector-icons
-npx react-native link react-native-vector-icons
+<!-- npx react-native link react-native-vector-icons -->
 
 
 # Instalando a biblioteca react-navigation para navegação entre telas
@@ -23,5 +23,8 @@ npm install @react-navigation/native @react-navigation/stack
 
 # Instalando os pacotes com a fonte desejada
 npx expo install @expo-google-fonts/poppins expo-font
+
+# Atualizar o expo para a versão mais recente
+npx expo install --check
 
 
