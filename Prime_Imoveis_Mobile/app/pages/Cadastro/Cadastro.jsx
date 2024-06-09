@@ -29,17 +29,24 @@ export default function Cadastro() {
      const handleEmailChange = (text) => {
       let newText = text;
       let newSelection = selection;
-
+  
       if (text === '') {
           setEmail('');
+          setInvalidEmail(false);
           newSelection = { start: 0, end: 0 };
       } else if (text.startsWith('@')) {
           setInvalidEmail(true);
           setEmail('');
           newSelection = { start: 0, end: 0 };
       } else if (text.includes('@gmail.com')) {
-          setEmail(text);
-          setInvalidEmail(false);
+          const domainPart = text.split('@gmail.com')[1];
+          if (domainPart === '') {
+              setEmail(text);
+              setInvalidEmail(false);
+          } else {
+              setEmail(text);
+              setInvalidEmail(true);
+          }
       } else if (text.includes('@')) {
           setInvalidEmail(true);
           setEmail(text);
@@ -48,16 +55,16 @@ export default function Cadastro() {
           setEmail(newText);
           newSelection = { start: text.length, end: text.length };
       }
-
+  
       setSelection(newSelection);
   };
-
-    //   Aqui coloca o "@gmail.com" apos digitar qualquer letra
-    const inputStyleEmail = email === ''
-    ? styles.CadastroInputSemValor
-    : email.includes('@gmail.com')
-    ? styles.CadastroInputComValor
-    : styles.CadastroInputComValorInvalido;
+  
+  // Aqui coloca o "@gmail.com" após digitar qualquer letra
+  const inputStyleEmail = email === ''
+      ? styles.CadastroInputSemValor
+      : email.includes('@gmail.com') && !invalidEmail
+      ? styles.CadastroInputComValor
+      : styles.CadastroInputComValorInvalido;
 
    // Aqui verifica se tem algo digitado na senha
    const inputStyleSenha = senha ? styles.CadastroInputComValor : styles.CadastroInputSemValor;

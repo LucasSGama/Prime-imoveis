@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 
     },
     CadastroInputComValor: {
-        height: 50,
+        height: 45,
         fontFamily: 'Poppins_400Regular',
         borderWidth: 0,
         borderTopWidth: 3,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         transition: 'opacity 0.3s, border-bottom-width 0.3s, border-bottom-color 0.3s',
     },
     CadastroInputComValorInvalido: {
-        height: 50,
+        height: 45,
         fontFamily: 'Poppins_400Regular',
         borderWidth: 0,
         borderTopWidth: 3,
