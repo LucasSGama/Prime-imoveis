@@ -72,7 +72,7 @@ export default function Login() {
                     <TextInput
                     style={inputStyleEmail}
                     keyboardType="email-address"
-                    placeholder="@gmail.com"
+                    placeholder="example@gmail.com"
                     onChangeText={handleEmailChange}
                     value={email}
                     />
