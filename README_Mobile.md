@@ -21,7 +21,7 @@ npx react-native link react-native-vector-icons
 # Instalando a biblioteca react-navigation para navegação entre telas
 npm install @react-navigation/native @react-navigation/stack
 
-# Instalando os pacotes com a fonte desejada (Não funcionou)
-expo install @expo-google-fonts/poppins expo-font
+# Instalando os pacotes com a fonte desejada
+npx expo install @expo-google-fonts/poppins expo-font
 
 
