@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "520048431287",
+    "project_id": "prime-imoveis-77d1d",
+    "storage_bucket": "prime-imoveis-77d1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520048431287:android:554df6b4a4e16cd7363d32",
+        "android_client_info": {
+          "package_name": "com.prime_imoveis_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520048431287-tq97rjtja9622g3isfo6avdpb9tme22o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrmlJs5Ts4ThJMg9ONBbrqD9su4r1NtO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520048431287-tq97rjtja9622g3isfo6avdpb9tme22o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -27,4 +27,10 @@ npx expo install @expo-google-fonts/poppins expo-font
 # Atualizar o expo para a versão mais recente
 npx expo install --check
 
+# Instalando o FireBase
+npm install --save @react-native-firebase/app
+
+# Deixando o React Native Expo mais detalhado, pois o expo deixa oculto alguns itens
+npx expo prebuild
+
 
