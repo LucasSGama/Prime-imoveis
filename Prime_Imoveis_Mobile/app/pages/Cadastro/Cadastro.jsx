@@ -113,7 +113,7 @@ export default function Cadastro() {
                         placeholderTextColor="gray"
                         placeholder="Insira sua Senha"
                     />
-                    <Icon name={showPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: '60%', right: 15 }} onPress={handleShowPassword} />
+                    <Icon name={showPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: '65%', right: 15 }} onPress={handleShowPassword} />
                 </View>
                 {/* -- INPUTS EMAIL */}
                 
@@ -127,7 +127,7 @@ export default function Cadastro() {
                         onChangeText={handleConfirmSenhaChange}
                         placeholder="Confirme sua senha"
                     />
-                    <Icon name={showConfirmPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: '60%', right: 15 }} onPress={handleShowConfirmPassword} />
+                    <Icon name={showConfirmPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: '65%', right: 15 }} onPress={handleShowConfirmPassword} />
                 </View>
                 {/* -- INPUTS CONFIRMA SENHA */}
                 </View>

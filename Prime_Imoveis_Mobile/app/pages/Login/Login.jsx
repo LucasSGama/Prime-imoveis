@@ -1,20 +1,55 @@
 import React from 'react';
-import { View, Image, Text, TextInput, Button, SafeAreaView } from 'react-native';
+import { useState } from 'react';
+import { View, Image, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
 import styles from "./LoginCSS"
-import ImagemTopoLogin from "../../../Image/Imagem_ultra_prime.jpg"
+import ImagemTopoLogin from "../../../Image/Logo-Prime-Prime_Prime.png"
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 
-
 export default function Login() {
+    // Usando o hook de navegação para obter acesso para ir para outra tela
     const navigation = useNavigation(); 
+    const [senha, setSenha] = useState('');
+    const [email, setEmail] = useState('');
+    const [invalidEmail, setInvalidEmail] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     
+    // Verificação do input de email para verificar se algo de errado
+    const handleEmailChange = (text) => {
+        if (text === '') {
+          setEmail('');
+        }  else if (text.startsWith('@')) {
+            setInvalidEmail(true);
+            setEmail('');
+      } else if (text.includes('@gmail.com')) {
+          setEmail(text);
+          setInvalidEmail(false);
+        } else if (text.includes('@')) {
+          setInvalidEmail(true);
+          setEmail(text);
+        } else {
+          setEmail(text + '@gmail.com');
+        }
+      };
+
+    //   Aqui coloca o "@gmail.com" apos digitar qualquer letra
+      const inputStyleEmail = email === ''? styles.LoginInputSemValor :
+  email.includes('@gmail.com')? styles.LoginInputComValor :
+  styles.LoginInputComValorInvalido;
+
+   // Aqui verifica se tem algo digitado na senha
+   const inputStyleSenha = senha ? styles.LoginInputComValor : styles.LoginInputSemValor;        
+
+      const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    }
+
   return (
-    <SafeAreaView style={styles.containerLogin}>
-    <Text>{'\n'}{'\n'}{'\n'}{'\n'}</Text>
-        {/* ++ PARTE DE CIMA DO LOGIN */}
-      <View style={styles.loginTopo}>
-        <View style={styles.loginTopoImagem}>
+    <SafeAreaView style={styles.ConfigContainerLogin}>
+    <ScrollView style={styles.containerLogin}>
+        {/* ++ PARTE DE CIMA DO Login */}
+      <View style={styles.LoginTopo}>
+        <View style={styles.LoginTopoImagem}>
           <Image
             source={ImagemTopoLogin}
             style={styles.LoginImage}
@@ -22,68 +57,60 @@ export default function Login() {
           />
         </View>
         <View style={styles.LoginTopoTitulo}>
-            <Text style={styles.LoginTextoTopoTitulo}>LOGIN</Text>
+            <Text style={styles.LoginTopoTituloText}>Logar</Text>
         </View>
       </View>
-        {/* -- PARTE DE CIMA DO LOGIN */}
+        {/* -- PARTE DE CIMA DO Login */}
 
-        {/* ++ PARTE DO MEIO DO LOGIN */}
+        {/* ++ PARTE DO MEIO DO Login */}
         <View style={styles.LoginMeio}>
             <View style={styles.LoginMeioInputs}>
 
                 {/* ++ INPUTS EMAIL */}
-                <View style={styles.LoginLayoutInputsEmail}>
-                    <Text>Email</Text>
+                <View style={styles.LoginLayoutInputs}>
+                    <Text style={styles.LoginLayoutInputsText}>Email</Text>
                     <TextInput
-                    style={[styles.Logininput, styles.LoginInputEmail]}
-                    // value={username}
-                    // onChangeText={setUsername}
-                    placeholder="Insira seu Email"
+                    style={inputStyleEmail}
+                    keyboardType="email-address"
+                    placeholder="@gmail.com"
+                    onChangeText={handleEmailChange}
+                    value={email}
                     />
                 </View>
                 {/* -- INPUTS EMAIL */}
                 
                 {/* ++ INPUTS SENHA */}
-                <View style={styles.LoginInputsSenha}>
-                    <Text>Senha</Text>
+                <View style={styles.LoginLayoutInputs}>
+                    <Text style={styles.LoginLayoutInputsText}>Senha</Text>
                         <TextInput
-                        style={[styles.Logininput, styles.LoginInputSenha]}
-                        // value={username}
-                        // onChangeText={setUsername}
+                        secureTextEntry={!showPassword}
+                        style={[inputStyleSenha, styles.LoginInputSenha]}
+                        value={senha}
+                        onChangeText={setSenha}
+                        placeholderTextColor="gray"
                         placeholder="Insira sua Senha"
                     />
+                    <Icon name={showPassword? "visibility" : "visibility-off"} size={24} color="#000" style={{ position: 'absolute', top: '65%', right: 15 }} onPress={handleShowPassword} />
                 </View>
                 {/* -- INPUTS EMAIL */}
                 
-                {/* ++ INPUTS CONFIRMA SENHA */}
-                <View style={styles.LoginInputsConfirmaSenha}>
-                    <Text>Confirme sua senha</Text>
-                        <TextInput
-                        style={[styles.Logininput, styles.LoginInputConfirmaSenha]}
-                        // value={username}
-                        // onChangeText={setUsername}
-                        placeholder="Confirme sua senha"
-                    />
                 </View>
-                {/* -- INPUTS CONFIRMA SENHA */}
 
-                {/* ++ BOTÃO PARA CADASTRAR */}
-                <View style={styles.LoginMeioBotão}>
-                    <Button
-                    title="Cadastrar"
-                    // onPress={handleCadastrar}
-                    />
+                {/* ++ BOTÃO PARA Logar */}
+                <View style={styles.LoginLayoutMeioBotão}>
+                        <TouchableOpacity style={styles.LoginMeioBotão} onPress={() => navigation.navigate('Home')}>
+                            <Text style={styles.LoginMeioBotaoText}>Logar</Text>
+                        </TouchableOpacity>
                 </View>
-                {/* -- BOTÃO PARA CADASTRAR */}
+                {/* -- BOTÃO PARA Logar */}
 
-            </View>
         </View>
-        {/* -- PARTE DO MEIO DO LOGIN */}
+        {/* -- PARTE DO MEIO DO Login */}
 
-        {/* ++ PARTE DE BAIXO DO LOGIN */}
+        {/* ++ PARTE DE BAIXO DO Login */}
         <View style={styles.LoginInferior}>
             <View style={styles.LoginGoToLogin}>
-                <Text style={styles.LoginTextoGoToLogin}>Já tem uma conta? <Text style={styles.LoginButtonGoToCadastro} onPress={() => navigation.navigate('Cadastro')}>Cadastro</Text></Text>
+                <Text style={styles.LoginTextoGoToLogin}>Não tem uma conta? <Text style={styles.LoginButtonGoToLogin} onPress={() => navigation.navigate('Cadastro')}>Cadastrar</Text></Text>
             </View>
             <View style={styles.LoginLayoutAuthGoogle}>
                 {/* Utilização da bliblioteca vector para pegar um icon */}
@@ -91,7 +118,8 @@ export default function Login() {
                 <Icon name="account-circle" size={30} color="#000" />
             </View>
         </View>
-        {/* ++ PARTE DE BAIXO DO LOGIN */}
+        {/* ++ PARTE DE BAIXO DO Login */}
+        </ScrollView>
     </SafeAreaView>
   );
 }

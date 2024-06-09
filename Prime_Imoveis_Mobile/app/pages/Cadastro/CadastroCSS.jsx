@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     CadastroTopoTituloText: {
-        fontWeight: 'bold',
         fontSize: 20,
+        fontFamily: 'Poppins_800ExtraBold',
+
     },
     CadastroMeio: {
         // borderWidth: 1, // Largura da borda
@@ -81,11 +82,12 @@ const styles = StyleSheet.create({
     CadastroLayoutInputsText: {
         // borderWidth: 1, // Largura da borda
         // borderColor: 'black', // Cor da borda
-        fontWeight: 'bold',
         fontSize: 20,
+        fontFamily: 'Poppins_800ExtraBold',
     },
     CadastroInputSemValor: {
-        height: 50,
+        height: 45,
+        fontFamily: 'Poppins_400Regular',
         borderWidth: 0,
         borderTopWidth: 3,
         borderTopColor: 'black',
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
     },
     CadastroInputComValor: {
         height: 50,
+        fontFamily: 'Poppins_400Regular',
         borderWidth: 0,
         borderTopWidth: 3,
         borderTopColor: 'green',
@@ -119,6 +122,7 @@ const styles = StyleSheet.create({
     },
     CadastroInputComValorInvalido: {
         height: 50,
+        fontFamily: 'Poppins_400Regular',
         borderWidth: 0,
         borderTopWidth: 3,
         borderTopColor: 'red',
@@ -150,6 +154,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 40,
     },
+    CadastroMeioBotaoText: {
+        fontFamily: 'Poppins_400Regular',
+        fontSize: 17,
+    },
     CadastroInferior: {
         // borderWidth: 1, // Largura da borda
         // borderColor: 'black', // Cor da borda
@@ -169,10 +177,12 @@ const styles = StyleSheet.create({
     },
     CadastroTextoGoToLogin: {
         fontSize: 15,
+        fontFamily: 'Poppins_400Regular',
     },
     CadastroButtonGoToLogin: {
         color: '#2779D9',
-        fontWeight: 'bold',
+        fontFamily: 'Poppins_400Regular',
+
     },
     CadastroLayoutAuthGoogle: {
         paddingTop: 5,
@@ -187,6 +197,7 @@ const styles = StyleSheet.create({
     },
     CadastroTextAuthGoogle: {
         fontSize: 15,
+        fontFamily: 'Poppins_400Regular',
     },
 })
 
