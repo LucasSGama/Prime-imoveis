@@ -33,4 +33,7 @@ npm install --save @react-native-firebase/app
 # Deixando o React Native Expo mais detalhado, pois o expo deixa oculto alguns itens
 npx expo prebuild
 
+# Instalando o firebase npm install firebase
+npm install firebase
+
 

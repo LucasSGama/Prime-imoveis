@@ -1,10 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import { View, Image, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
+import { View, Image, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView, Alert} from 'react-native';
 import styles from "./CadastroCSS"
 import ImagemTopoCadastro from "../../../Image/Mulher_Abrindo_Porta_Prime.png"
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
+import firebaseConfig from '../../../Data/firebaseConfig';
+import { initializeApp } from 'firebase/app';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+
 
 export default function Cadastro() {
     // Usando o hook de navegação para obter acesso para ir para outra tela
@@ -16,33 +20,44 @@ export default function Cadastro() {
     const [invalidConfirmSenha, setInvalidConfirmSenha] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-
+    const [selection, setSelection] = useState({ start: 0, end: 0 });
 
    
-    
+    // ++INTERFACE DA PÁGINA
     // Verificação do input de email para verificar se algo de errado
-    const handleEmailChange = (text) => {
-        if (text === '') {
+     // Verificação do input de email para verificar se algo de errado
+     const handleEmailChange = (text) => {
+      let newText = text;
+      let newSelection = selection;
+
+      if (text === '') {
           setEmail('');
-        }  else if (text.startsWith('@')) {
-            setInvalidEmail(true);
-            setEmail('');
+          newSelection = { start: 0, end: 0 };
+      } else if (text.startsWith('@')) {
+          setInvalidEmail(true);
+          setEmail('');
+          newSelection = { start: 0, end: 0 };
       } else if (text.includes('@gmail.com')) {
           setEmail(text);
           setInvalidEmail(false);
-        } else if (text.includes('@')) {
+      } else if (text.includes('@')) {
           setInvalidEmail(true);
           setEmail(text);
-        } else {
-          setEmail(text + '@gmail.com');
-        }
-      };
+      } else {
+          newText = text + '@gmail.com';
+          setEmail(newText);
+          newSelection = { start: text.length, end: text.length };
+      }
+
+      setSelection(newSelection);
+  };
 
     //   Aqui coloca o "@gmail.com" apos digitar qualquer letra
-      const inputStyleEmail = email === ''? styles.CadastroInputSemValor :
-  email.includes('@gmail.com')? styles.CadastroInputComValor :
-  styles.CadastroInputComValorInvalido;
+    const inputStyleEmail = email === ''
+    ? styles.CadastroInputSemValor
+    : email.includes('@gmail.com')
+    ? styles.CadastroInputComValor
+    : styles.CadastroInputComValorInvalido;
 
    // Aqui verifica se tem algo digitado na senha
    const inputStyleSenha = senha ? styles.CadastroInputComValor : styles.CadastroInputSemValor;
@@ -66,6 +81,24 @@ export default function Cadastro() {
     const handleShowConfirmPassword = () => {
         setShowConfirmPassword(!showConfirmPassword);
       }
+      // --INTERFACE DA PÁGINA
+
+
+      // ++BANCO DE DADOS
+      
+      const firebaseApp = initializeApp(firebaseConfig);
+      const auth = getAuth(firebaseApp);
+
+      const handleCreateUser = async () => {
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+          const user = userCredential.user;
+          Alert.alert(`Usuário criado com sucesso: ${user.uid}`);
+        } catch (error) {
+          Alert.alert(`Erro ao criar usuário: ${error.message}`);
+        }
+      };
+      // --BANCO DE DADOS
 
   return (
     <SafeAreaView style={styles.ConfigContainerCadastro}>
@@ -98,6 +131,8 @@ export default function Cadastro() {
                     placeholder="example@gmail.com"
                     onChangeText={handleEmailChange}
                     value={email}
+                    selection={selection}
+                    onSelectionChange={(event) => setSelection(event.nativeEvent.selection)}
                     />
                 </View>
                 {/* -- INPUTS EMAIL */}
@@ -134,7 +169,7 @@ export default function Cadastro() {
 
                 {/* ++ BOTÃO PARA CADASTRAR */}
                 <View style={styles.CadastroLayoutMeioBotão}>
-                        <TouchableOpacity style={styles.CadastroMeioBotão}>
+                        <TouchableOpacity style={styles.CadastroMeioBotão} onPress={handleCreateUser}>
                             <Text style={styles.CadastroMeioBotaoText}>Cadastrar</Text>
                         </TouchableOpacity>
                 </View>
