@@ -36,4 +36,25 @@ npx expo prebuild
 # Instalando o firebase npm install firebase
 npm install firebase
 
+# Adicionando a bibliotes react native alerts para alertas mais personalizados
+npx expo install react-native-dialog
 
+# Instalando um macanizo de armazenamento para guardar sessões
+npm install @react-native-async-storage/async-storage
+
+
+https://console.cloud.google.com/apis/credentials?project=prime-imoveis-77d1d
+
+# Instalando pacotes para authenticação do firebase
+npm install @react-native-firebase/auth
+npm install @react-native-firebase/app
+
+# Linkando com o react native com as funções do firebase
+npx react-native run-android
+
+# Instalando as depências para fazer authenticação com o Google
+npm install @react-native-google-signin/google-signin 
+npm install react-native-google-signin
+@react-native-firebase/app
+
+# Linkando o Google com o projeto

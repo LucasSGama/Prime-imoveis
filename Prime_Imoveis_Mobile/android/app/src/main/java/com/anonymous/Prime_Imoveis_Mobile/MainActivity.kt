@@ -1,4 +1,4 @@
-package com.prime_imoveis_mobile
+package com.anonymous.Prime_Imoveis_Mobile
 
 import android.os.Build
 import android.os.Bundle

@@ -1,4 +1,5 @@
 // firebaseConfig.js
+
 const googleServicesJson = require('../android/app/google-services.json');
 // Extraia as informações necessárias do google-services.json
 const {

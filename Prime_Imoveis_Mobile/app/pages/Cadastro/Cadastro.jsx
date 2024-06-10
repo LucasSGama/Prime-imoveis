@@ -1,14 +1,16 @@
-import React from 'react';
-import { useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { View, Image, Text, TextInput, TouchableOpacity, SafeAreaView, ScrollView, Alert} from 'react-native';
 import styles from "./CadastroCSS"
 import ImagemTopoCadastro from "../../../Image/Mulher_Abrindo_Porta_Prime.png"
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
+
 import firebaseConfig from '../../../Data/firebaseConfig';
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, AuthProvider, initializeAuth, onAuthStateChanged, createUserWithEmailAndPassword, getReactNativePersistence } from 'firebase/auth';
 
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Cadastro() {
     // Usando o hook de navegação para obter acesso para ir para outra tela
@@ -21,6 +23,7 @@ export default function Cadastro() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [selection, setSelection] = useState({ start: 0, end: 0 });
+    const [erro, setErro] = useState(null);
 
    
     // ++INTERFACE DA PÁGINA
@@ -78,6 +81,15 @@ export default function Cadastro() {
           setInvalidConfirmSenha(false);
         }
       };
+
+      useEffect(() => {
+        if (confirmSenha!== '' && confirmSenha!== senha) {
+          setInvalidConfirmSenha(true);
+        } else {
+          setInvalidConfirmSenha(false);
+        }
+      }, [senha, confirmSenha]);
+      
       
       const inputStyleConfirmSenha = confirmSenha === ''? styles.CadastroInputSemValor : invalidConfirmSenha? styles.CadastroInputComValorInvalido : styles.CadastroInputComValor;
         
@@ -94,17 +106,40 @@ export default function Cadastro() {
       // ++BANCO DE DADOS
       
       const firebaseApp = initializeApp(firebaseConfig);
-      const auth = getAuth(firebaseApp);
+      const auth = getAuth(firebaseApp, {
+      persistence: getReactNativePersistence(AsyncStorage)
+      });
+      
 
+      // Criar usuario com email e senha
       const handleCreateUser = async () => {
+        if (!email ||!senha ||!confirmSenha) {
+          Alert.alert('Erro', 'Preencha todos os campos');
+          return;
+        }
+      
+        if (invalidEmail || invalidConfirmSenha) {
+          Alert.alert('Erro', 'Verifique os campos de email e senha');
+          return;
+        }
+
+        if (senha.length < 6) {
+          Alert.alert('Erro', 'Senha fraca. A senha deve ter pelo menos 6 caracteres');
+          return;
+        }
+      
         try {
           const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
           const user = userCredential.user;
-          Alert.alert(`Usuário criado com sucesso: ${user.uid}`);
+          Alert.alert(`Usuário criado com sucesso`, `UID: ${user.uid}`);
+          navigation.navigate('Login'); // Redireciona para a tela de login
         } catch (error) {
-          Alert.alert(`Erro ao criar usuário: ${error.message}`);
+          Alert.alert('Erro', `Erro ao criar usuário: ${error.message}`);
         }
       };
+
+      // Criar usuario com o Google
+      
       // --BANCO DE DADOS
 
   return (
@@ -193,7 +228,7 @@ export default function Cadastro() {
             <View style={styles.CadastroLayoutAuthGoogle}>
                 {/* Utilização da bliblioteca vector para pegar um icon */}
                 <Text style={styles.CadastroTextAuthGoogle}>Logar com Google:</Text>
-                <Icon name="account-circle" size={30} color="#000" />
+                <Icon name="account-circle" size={30} color="#000"/>
             </View>
         </View>
         {/* ++ PARTE DE BAIXO DO CADASTRO */}
