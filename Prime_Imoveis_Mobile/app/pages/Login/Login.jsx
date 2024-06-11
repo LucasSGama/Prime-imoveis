@@ -101,6 +101,9 @@ export default function Login() {
                         <TouchableOpacity style={styles.LoginMeioBotão} onPress={() => navigation.navigate('Home')}>
                             <Text style={styles.LoginMeioBotaoText}>Logar</Text>
                         </TouchableOpacity>
+                        <View style={styles.EsqueceuSenhaLayout}>
+                            <Text style={styles.EsqueceuSenhaText}>Esqueceu a senha?</Text>
+                        </View>
                 </View>
                 {/* -- BOTÃO PARA Logar */}
 

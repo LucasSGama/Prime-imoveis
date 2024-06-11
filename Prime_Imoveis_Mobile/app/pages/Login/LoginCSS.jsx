@@ -154,10 +154,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 40,
     },
+    
     LoginMeioBotaoText: {
         fontFamily: 'Poppins_400Regular',
         fontSize: 17,
     },
+
+    EsqueceuSenhaLayout: {
+        // borderWidth: 1, // Largura da borda
+        // borderColor: 'black', // Cor da borda
+        display: 'flex',
+        alignItems: 'center',
+        paddingTop: 5,
+    },  
+
+    EsqueceuSenhaText: {
+        color: '#2779D9',
+        fontFamily: 'Poppins_400Regular',
+
+    },
+    
     LoginInferior: {
         // borderWidth: 1, // Largura da borda
         // borderColor: 'black', // Cor da borda

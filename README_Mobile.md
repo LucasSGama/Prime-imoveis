@@ -57,4 +57,11 @@ npm install @react-native-google-signin/google-signin
 npm install react-native-google-signin
 @react-native-firebase/app
 
-# Linkando o Google com o projeto
+# Como usar o celular via usb para ver o projeto:
+Instalar o SDK Platform Tools
+Então configurar ele no path
+para ent usar o comando:
+NPX expo start --android
+
+Comando (No cmd) para checar se o dispositivo ta conectado:
+adb devices
