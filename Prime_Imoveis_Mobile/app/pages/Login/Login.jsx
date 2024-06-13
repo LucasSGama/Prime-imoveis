@@ -4,14 +4,17 @@ import ImagemTopoLogin from "../../../Image/Logo-Prime-Prime_Prime.png";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { initializeAuth, signInWithEmailAndPassword, getReactNativePersistence } from 'firebase/auth';
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import firebaseConfig from '../../../Data/firebaseConfig';
 import styles from './LoginCSS';
 
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
+const auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+  });
+  
 export default function Login() {
     const navigation = useNavigation();
     const [senha, setSenha] = useState('');
@@ -146,8 +149,7 @@ export default function Login() {
                 <View style={styles.LoginInferior}>
                     <View style={styles.LoginGoToLogin}>
                         <Text style={styles.LoginTextoGoToLogin}>Não tem uma conta? 
-                            <Text style={styles.LoginButtonGoToLogin} onPress={() => navigation.navigate('Cadastro')}>
-                                Cadastrar
+                            <Text style={styles.LoginButtonGoToLogin} onPress={() => navigation.navigate('Cadastro')}> Cadastrar
                             </Text>
                         </Text>
                     </View>

@@ -65,3 +65,6 @@ NPX expo start --android
 
 Comando (No cmd) para checar se o dispositivo ta conectado:
 adb devices
+
+# Instalando a versão mais recente do armazenamento assincrono
+ npm install @react-native-async-storage/async-storage@latest
