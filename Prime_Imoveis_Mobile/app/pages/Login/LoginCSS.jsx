@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 
     },
     LoginInputComValor: {
-        height: 50,
+        height: 45,
         fontFamily: 'Poppins_400Regular',
         borderWidth: 0,
         borderTopWidth: 3,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         transition: 'opacity 0.3s, border-bottom-width 0.3s, border-bottom-color 0.3s',
     },
     LoginInputComValorInvalido: {
-        height: 50,
+        height: 45,
         fontFamily: 'Poppins_400Regular',
         borderWidth: 0,
         borderTopWidth: 3,
@@ -164,13 +164,14 @@ const styles = StyleSheet.create({
         // borderWidth: 1, // Largura da borda
         // borderColor: 'black', // Cor da borda
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         paddingTop: 5,
     },  
 
     EsqueceuSenhaText: {
         color: '#2779D9',
         fontFamily: 'Poppins_400Regular',
+        opacity: 0.5, // Ajuste o valor conforme a necessidade
 
     },
     

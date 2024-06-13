@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import firebaseConfig from '../../../Data/firebaseConfig';
 import { initializeApp } from 'firebase/app';
-import { getAuth, AuthProvider, initializeAuth, onAuthStateChanged, createUserWithEmailAndPassword, getReactNativePersistence } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, getReactNativePersistence } from 'firebase/auth';
 
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -175,7 +175,7 @@ export default function Cadastro() {
                     value={email}
                     selection={selection}
                     onSelectionChange={(event) => setSelection(event.nativeEvent.selection)}
-                    />
+                  />
                 </View>
                 {/* -- INPUTS EMAIL */}
                 

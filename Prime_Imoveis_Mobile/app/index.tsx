@@ -1,14 +1,25 @@
-import * as React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import { useFonts, Poppins_400Regular, Poppins_800ExtraBold, Poppins_700Bold, Poppins_100Thin } from '@expo-google-fonts/poppins';
 
-
 // Criação da configuração da navegação
 const Stack = createStackNavigator();
+
+// Configuração de linking
+const linking = {
+  prefixes: ['PrimeImoveis://', 'https://PrimeImoveis.com'],
+  config: {
+    screens: {
+      Login: 'login',
+      Cadastro: 'cadastro',
+      Home: 'home',
+    },
+  },
+};
 
 export default function Index() {
   const [fonteLoaded] = useFonts({
@@ -17,16 +28,13 @@ export default function Index() {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
-  
+
   if (!fonteLoaded) {
     return null;
   }
-  
+
   return (
-    // // Criando a div do Navigation
-    
-    <NavigationContainer independent={true}>
-       {/* Navigator a partir da configuração */}
+    <NavigationContainer linking={linking} independent={true}>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen 
           name='Cadastro' 
@@ -45,18 +53,5 @@ export default function Index() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-  )
+  );
 }
-
-
-
-// import { Text, View } from "react-native";
-// import CadastroPage from "./pages/Cadastro/Cadastro";
-
-// export default function Index() {
-//   return (
-//     <View>
-//       <CadastroPage/>
-//     </View>
-//   );
-// }
