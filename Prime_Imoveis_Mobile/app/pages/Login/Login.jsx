@@ -26,7 +26,7 @@ export default function Login() {
     
     
 const handleEmailChange = (text) => {
-  let newText = text.toLowerCase(); // Converter o texto para letras minúsculas
+  let newText = text; // Converter o texto para letras minúsculas
   let newSelection = selection;
 
   if (newText === '') {

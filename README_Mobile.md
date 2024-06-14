@@ -68,3 +68,14 @@ adb devices
 
 # Instalando a versão mais recente do armazenamento assincrono
  npm install @react-native-async-storage/async-storage@latest
+
+# Instalando biblioteca para dropdown (Falhou)
+npm install react-native-dropdown-picker
+
+# Instalando biblioteca para dropdown (Falhou)
+npm install react-native-modal-dropdown
+
+
+# Instalando biblioteca para menu lateral
+npm install react-native-drawer
+

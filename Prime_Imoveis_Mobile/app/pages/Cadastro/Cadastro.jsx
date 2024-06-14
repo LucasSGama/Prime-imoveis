@@ -31,7 +31,7 @@ export default function Cadastro() {
     // Verificação do input de email para verificar se algo de errado
      // Verificação do input de email para verificar se algo de errado
      const handleEmailChange = (text) => {
-      let newText = text.toLowerCase(); // Convertendo o texto para letras minúsculas
+      let newText = text; // Convertendo o texto para letras minúsculas
       let newSelection = selection;
   
       if (newText === '') {

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, Button } from 'react-native';
+import styles from './HomeCSS';
 import { useNavigation } from '@react-navigation/native';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import firebaseConfig from '../../../Data/firebaseConfig';
+import HeaderPrime from '../../components/HeaderPrime';
 
 // Inicializar Firebase
 const auth = getAuth();
@@ -39,6 +41,7 @@ export default function Home() {
 
     return (
         <View style={styles.HomeContainer}>
+            <HeaderPrime />
             <Text style={styles.HomeText}>Você está logado!</Text>
             {userEmail && <Text style={styles.HomeText}>E-mail: {userEmail}</Text>}
             <Button
@@ -49,14 +52,3 @@ export default function Home() {
     );
 }
 
-const styles = StyleSheet.create({
-    HomeContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    HomeText: {
-        fontSize: 18,
-        marginBottom: 10,
-    },
-});
