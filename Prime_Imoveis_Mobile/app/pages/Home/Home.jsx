@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import firebaseConfig from '../../../Data/firebaseConfig';
 
 // Inicializar Firebase
@@ -25,17 +25,25 @@ export default function Home() {
         return unsubscribe; // Limpa o listener ao desmontar o componente
     }, []);
 
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                // Logout bem-sucedido
+                navigation.navigate('Login');
+            })
+            .catch((error) => {
+                // Tratamento de erro
+                console.error('Erro ao fazer logout:', error);
+            });
+    };
+
     return (
         <View style={styles.HomeContainer}>
             <Text style={styles.HomeText}>Você está logado!</Text>
             {userEmail && <Text style={styles.HomeText}>E-mail: {userEmail}</Text>}
             <Button
                 title="Logout"
-                onPress={() => {
-                    // Implemente a lógica de logout aqui
-                    // Por exemplo, auth.signOut()
-                    navigation.navigate('Login');
-                }}
+                onPress={handleLogout}
             />
         </View>
     );

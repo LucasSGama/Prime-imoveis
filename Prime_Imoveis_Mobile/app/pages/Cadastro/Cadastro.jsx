@@ -23,6 +23,7 @@ export default function Cadastro() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [selection, setSelection] = useState({ start: 0, end: 0 });
+    const [isCadastroIn, setIsCadastroIn] = useState(false); // Estado para controlar o envio de dados
     const [erro, setErro] = useState(null);
 
    
@@ -30,31 +31,31 @@ export default function Cadastro() {
     // Verificação do input de email para verificar se algo de errado
      // Verificação do input de email para verificar se algo de errado
      const handleEmailChange = (text) => {
-      let newText = text;
+      let newText = text.toLowerCase(); // Convertendo o texto para letras minúsculas
       let newSelection = selection;
   
-      if (text === '') {
+      if (newText === '') {
           setEmail('');
           setInvalidEmail(false);
           newSelection = { start: 0, end: 0 };
-      } else if (text.startsWith('@')) {
+      } else if (newText.startsWith('@')) {
           setInvalidEmail(true);
           setEmail('');
           newSelection = { start: 0, end: 0 };
-      } else if (text.includes('@gmail.com')) {
-          const domainPart = text.split('@gmail.com')[1];
+      } else if (newText.includes('@gmail.com')) {
+          const domainPart = newText.split('@gmail.com')[1];
           if (domainPart === '') {
-              setEmail(text);
+              setEmail(newText);
               setInvalidEmail(false);
           } else {
-              setEmail(text);
+              setEmail(newText);
               setInvalidEmail(true);
           }
-      } else if (text.includes('@')) {
+      } else if (newText.includes('@')) {
           setInvalidEmail(true);
-          setEmail(text);
+          setEmail(newText);
       } else {
-          newText = text + '@gmail.com';
+          newText = newText + '@gmail.com';
           setEmail(newText);
           newSelection = { start: text.length, end: text.length };
       }
@@ -113,27 +114,37 @@ export default function Cadastro() {
 
       // Criar usuario com email e senha
       const handleCreateUser = async () => {
-        if (!email ||!senha ||!confirmSenha) {
+        setIsCadastroIn(true); // Definir o estado como verdadeiro ao iniciar o processo de cadastro
+    
+        // Validações dos campos
+        if (!email || !senha || !confirmSenha) {
           Alert.alert('Erro', 'Preencha todos os campos');
+          setIsCadastroIn(false); // Definir o estado como falso em caso de erro
           return;
         }
-      
+    
         if (invalidEmail || invalidConfirmSenha) {
           Alert.alert('Erro', 'Verifique os campos de email e senha');
+          setIsCadastroIn(false); // Definir o estado como falso em caso de erro
           return;
         }
-
+    
         if (senha.length < 6) {
           Alert.alert('Erro', 'Senha fraca. A senha deve ter pelo menos 6 caracteres');
+          setIsCadastroIn(false); // Definir o estado como falso em caso de erro
           return;
         }
-      
+    
         try {
+          // Processo de criação de usuário
           const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
           const user = userCredential.user;
           Alert.alert(`Usuário criado com sucesso`, `UID: ${user.uid}`);
+          setIsCadastroIn(false); // Definir o estado como falso após o cadastro ser concluído
           navigation.navigate('Login'); // Redireciona para a tela de login
         } catch (error) {
+          // Tratamento de erros
+          setIsCadastroIn(false); // Definir o estado como falso em caso de erro
           Alert.alert('Erro', `Erro ao criar usuário: ${error.message}`);
         }
       };
@@ -211,8 +222,8 @@ export default function Cadastro() {
 
                 {/* ++ BOTÃO PARA CADASTRAR */}
                 <View style={styles.CadastroLayoutMeioBotão}>
-                        <TouchableOpacity style={styles.CadastroMeioBotão} onPress={handleCreateUser}>
-                            <Text style={styles.CadastroMeioBotaoText}>Cadastrar</Text>
+                        <TouchableOpacity style={styles.CadastroMeioBotão} onPress={handleCreateUser} disabled={isCadastroIn}>
+                            <Text style={styles.CadastroMeioBotaoText}>{isCadastroIn ? 'Cadastrando...' : 'Cadastrar'}</Text>
                         </TouchableOpacity>
                 </View>
                 {/* -- BOTÃO PARA CADASTRAR */}

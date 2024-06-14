@@ -21,40 +21,50 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [invalidEmail, setInvalidEmail] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoggingIn, setIsLoggingIn] = useState(false); // Estado para controlar o envio de dados
     const [selection, setSelection] = useState({ start: 0, end: 0 });
     
-    const handleEmailChange = (text) => {
-      let newText = text;
-      let newSelection = selection;
-  
-      if (text === '') {
-          setEmail('');
-          setInvalidEmail(false);
-          newSelection = { start: 0, end: 0 };
-      } else if (text.startsWith('@')) {
-          setInvalidEmail(true);
-          setEmail('');
-          newSelection = { start: 0, end: 0 };
-      } else if (text.includes('@gmail.com')) {
-          const domainPart = text.split('@gmail.com')[1];
-          if (domainPart === '') {
-              setEmail(text);
-              setInvalidEmail(false);
-          } else {
-              setEmail(text);
-              setInvalidEmail(true);
-          }
-      } else if (text.includes('@')) {
-          setInvalidEmail(true);
-          setEmail(text);
-      } else {
-          newText = text + '@gmail.com';
-          setEmail(newText);
-          newSelection = { start: text.length, end: text.length };
-      }
-  
-      setSelection(newSelection);
-  };
+    
+const handleEmailChange = (text) => {
+  let newText = text.toLowerCase(); // Converter o texto para letras minúsculas
+  let newSelection = selection;
+
+  if (newText === '') {
+    setEmail('');
+    setInvalidEmail(false);
+    newSelection = { start: 0, end: 0 };
+  } else if (newText.startsWith('@') || newText.includes('@@')) {
+    setInvalidEmail(true);
+    setEmail('');
+    newSelection = { start: 0, end: 0 };
+  } else if (newText.includes('@gmail.com')) {
+    const atIndex = newText.indexOf('@');
+    const domainPart = newText.slice(atIndex + 1);
+    if (domainPart === 'gmail.com' && atIndex > 0) {
+      setEmail(newText);
+      setInvalidEmail(false);
+    } else {
+      setEmail(newText);
+      setInvalidEmail(true);
+    }
+  } else if (newText.includes('@')) {
+    setInvalidEmail(true);
+    setEmail(newText);
+  } else if (newText.length === 1 && newText !== '@') {
+    newText = newText + '@gmail.com';
+    setEmail(newText);
+    newSelection = { start: text.length, end: text.length };
+  } else {
+    newText = newText + '@gmail.com';
+    setEmail(newText);
+    newSelection = { start: text.length, end: text.length };
+  }
+
+  setSelection(newSelection);
+};
+      
+      
+      
 
     // Aqui coloca o "@gmail.com" após digitar qualquer letra
     const inputStyleEmail = email === ''
@@ -70,20 +80,34 @@ export default function Login() {
     };
 
     const handleLogin = () => {
+        setIsLoggingIn(true); // Definir o estado como verdadeiro ao iniciar o processo de login
         signInWithEmailAndPassword(auth, email, senha)
-            .then((userCredential) => {
-                // Login bem-sucedido
-                const user = userCredential.user;
-                Alert.alert('Login bem-sucedido!', `Bem-vindo, ${user.email}`);
-                navigation.navigate('Home');
-            })
-            .catch((error) => {
-                // Erro no login
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                Alert.alert('Erro no login', errorMessage);
-            });
-    };
+          .then((userCredential) => {
+            // Login bem-sucedido
+            setIsLoggingIn(false); // Definir o estado como falso após o login ser concluído
+            const user = userCredential.user;
+            Alert.alert('Login bem-sucedido!', `Bem-vindo, ${user.email}`);
+            navigation.navigate('Home');
+          })
+          .catch((error) => {
+            // Erro no login
+            setIsLoggingIn(false); // Definir o estado como falso em caso de erro
+            const errorCode = error.code;
+            const errorMessage = error.message;
+    
+            if (errorCode === 'auth/user-not-found') {
+              // Nenhum usuário encontrado, exibir mensagem amigável
+              Alert.alert('Nenhum usuário encontrado', 'Por favor, verifique suas credenciais ou registre-se para criar uma conta.');
+            } else {
+              // Outro erro, exibir mensagem padrão de erro
+              Alert.alert('Erro no login', errorMessage);
+            }
+          });
+      };
+    
+      function EsqueceuSenha(){
+        Alert.alert("Esqueceu a senha", "você é burro");
+      }
 
     return (
         <SafeAreaView style={styles.ConfigContainerLogin}>
@@ -137,11 +161,11 @@ export default function Login() {
                     </View>
                     
                     <View style={styles.LoginLayoutMeioBotão}>
-                        <TouchableOpacity style={styles.LoginMeioBotão} onPress={handleLogin}>
-                            <Text style={styles.LoginMeioBotaoText}>Logar</Text>
+                        <TouchableOpacity style={styles.LoginMeioBotão} onPress={handleLogin} disabled={isLoggingIn}>
+                            <Text style={styles.LoginMeioBotaoText}>{isLoggingIn ? 'Logando...' : 'Logar'}</Text>
                         </TouchableOpacity>
                         <View style={styles.EsqueceuSenhaLayout}>
-                            <Text style={styles.EsqueceuSenhaText}>Esqueceu a senha?</Text>
+                            <Text style={styles.EsqueceuSenhaText} onPress={EsqueceuSenha}>Esqueceu a senha?</Text>
                         </View>
                     </View>
                 </View>
