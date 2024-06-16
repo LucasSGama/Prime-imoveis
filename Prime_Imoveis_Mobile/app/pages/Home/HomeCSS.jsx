@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         gap: 20,
     },
     FiltrosLayoutTitulo: {
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins_700Bold',
         textAlign: 'center',
         backgroundColor: '#29A6DE',
         padding: 3,
