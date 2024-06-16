@@ -84,4 +84,9 @@ npm install @react-navigation/native @react-navigation/drawer
 
 npm install react-native-gesture-handler react-native-reanimated
 
+# Tela de carregamento personalizada
+npm install expo-app-loading
+
+(Serve para fazer uma tela de carregamento personalizada)
+
 
