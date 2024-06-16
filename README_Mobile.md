@@ -15,8 +15,6 @@ npx expo-doctor
 
 # Instalando os icons para usar do react native
 npm install --save react-native-vector-icons
-<!-- npx react-native link react-native-vector-icons -->
-
 
 # Instalando a biblioteca react-navigation para navegação entre telas
 npm install @react-navigation/native @react-navigation/stack
@@ -39,11 +37,8 @@ npm install firebase
 # Adicionando a bibliotes react native alerts para alertas mais personalizados
 npx expo install react-native-dialog
 
-# Instalando um macanizo de armazenamento para guardar sessões
+# Instalando um armazenamento assincrono e nativo para salvar os dados das sessões
 npm install @react-native-async-storage/async-storage
-
-
-https://console.cloud.google.com/apis/credentials?project=prime-imoveis-77d1d
 
 # Instalando pacotes para authenticação do firebase
 npm install @react-native-firebase/auth
@@ -69,24 +64,24 @@ adb devices
 # Instalando a versão mais recente do armazenamento assincrono
  npm install @react-native-async-storage/async-storage@latest
 
-# Instalando biblioteca para dropdown (Falhou)
-npm install react-native-dropdown-picker
-
-# Instalando biblioteca para dropdown (Falhou)
-npm install react-native-modal-dropdown
-
-
 # Instalando biblioteca para menu lateral
 npm install react-native-drawer (Código da versão antiga)
 
 Versão atual:
 npm install @react-navigation/native @react-navigation/drawer
 
-npm install react-native-gesture-handler react-native-reanimated
+npm install react-native-gesture-handler react-native-reanimated (Opcional)
 
 # Tela de carregamento personalizada
 npm install expo-app-loading
 
 (Serve para fazer uma tela de carregamento personalizada)
+
+# Instalando biblioteca para a filtragem do home
+npm install react-native-picker-select
+
+# Instalando dependencia para usar a API
+npm install axios
+
 
 

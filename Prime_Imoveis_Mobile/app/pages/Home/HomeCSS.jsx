@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+    scrollContainer: {
+        backgroundColor: '#fff', // Cor de fundo da tela
+    },
     HomeContainer: {
         display: 'flex',
         alignItems: 'center',
@@ -41,6 +44,43 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: 'Poppins_700Bold',
     },
+    HomeFiltrosLayout: {
+        marginTop: 30,
+        width: '95%',
+        gap: 20,
+    },
+    FiltrosLayoutTitulo: {
+        fontFamily: 'Poppins_400Regular',
+        textAlign: 'center',
+        backgroundColor: '#29A6DE',
+        padding: 3,
+        borderRadius: 10,
+    },
+    FiltrosInputBox: {
+        backgroundColor: '#CFCBCB',
+        display: 'flex',
+        alignItems: 'center',
+        padding: 20,
+        borderRadius: 15,
+        gap: 20,
+        borderWidth: 1,
+        borderColor: 'black',
+        width: '100%',
+    },
+    FiltrosLayoutBlueBar: {
+        height: 10,
+        backgroundColor: '#29A6DE',
+        borderRadius: 2,
+    },
+
+    FiltrosLayoutResultado: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+        flexWrap: 'wrap',
+    },
+
 });
 
 export default styles;
