@@ -77,5 +77,11 @@ npm install react-native-modal-dropdown
 
 
 # Instalando biblioteca para menu lateral
-npm install react-native-drawer
+npm install react-native-drawer (Código da versão antiga)
+
+Versão atual:
+npm install @react-navigation/native @react-navigation/drawer
+
+npm install react-native-gesture-handler react-native-reanimated
+
 
