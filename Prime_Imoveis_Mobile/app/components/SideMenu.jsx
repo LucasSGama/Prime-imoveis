@@ -13,19 +13,19 @@ const SideMenu = ({ onClose }) => {
         <Icon name="bars" size={24} color="#000" style={stylesSideMenu.headerIcon} />
         <Text style={stylesSideMenu.headerTitle}>Menu</Text>
       </View>
-      <TouchableOpacity style={stylesSideMenu.menuItem} onPress={() => { navigation.navigate('Home'); onClose(); }}>
+      <TouchableOpacity style={stylesSideMenu.menuItem} /* onPress={() => { navigation.navigate('Home'); onClose(); }}*/>
         <Icon name="bullhorn" size={20} color="#000" style={stylesSideMenu.menuIcon} />
         <Text style={stylesSideMenu.menuItemText}>Anunciar imóvel</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={stylesSideMenu.menuItem} onPress={() => { navigation.navigate('Profile'); onClose(); }}>
+      <TouchableOpacity style={stylesSideMenu.menuItem} /*onPress={() => { navigation.navigate('Profile'); onClose(); }}*/>
         <Icon name="search" size={20} color="#000" style={stylesSideMenu.menuIcon} />
         <Text style={stylesSideMenu.menuItemText}>Procurar Imóveis</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={stylesSideMenu.menuItem} onPress={() => { navigation.navigate('Other'); onClose(); }}>
+      <TouchableOpacity style={stylesSideMenu.menuItem} /*onPress={() => { navigation.navigate('Other'); onClose(); }}*/>
         <Icon name="building" size={20} color="#000" style={stylesSideMenu.menuIcon} />
         <Text style={stylesSideMenu.menuItemText}>Meus imóveis</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={stylesSideMenu.menuItem} onPress={() => { navigation.navigate('Other'); onClose(); }}>
+      <TouchableOpacity style={stylesSideMenu.menuItem} /*onPress={() => { navigation.navigate('Other'); onClose(); }}*/>
         <Icon name="shopping-cart" size={20} color="#000" style={stylesSideMenu.menuIcon} />
         <Text style={stylesSideMenu.menuItemText}>Carrinho</Text>
       </TouchableOpacity>

@@ -45,3 +45,9 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_700Bold',
     },
 })
+
+const EstiloItemImovel = StyleSheet.create({
+    ItemImovelBox: { 
+        marginLeft: 100,
+    },
+})

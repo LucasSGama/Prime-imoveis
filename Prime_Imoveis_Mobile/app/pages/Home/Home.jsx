@@ -7,6 +7,8 @@ import HeaderPrime from '../../components/HeaderPrime';
 import Banner from '../../../Image/Banner-prime.png';
 import axios from 'axios';
 import ResultadoFiltro from './components/ResultadoFiltro';
+import Carrosel from './components/CarroselImoveis';
+import PrimeFooter from '../../components/PrimeFooter';
 
 export default function Home() {
     const [tipoCompra, setTipoCompra] = useState("Nenhum");
@@ -84,7 +86,6 @@ export default function Home() {
                                     Icon={() => <Icon name="arrow-drop-down" size={24} color="gray" />}
                                 />
                             </View>
-                            <View style={styles.FiltrosLayoutBlueBar}></View>
                             <View style={styles.FiltrosLayoutResultado}>
                                 <ResultadoFiltro
                                     tipoCompra={tipoCompra}
@@ -92,7 +93,11 @@ export default function Home() {
                                     estadoSelecionado={estadoSelecionado}
                                 />
                             </View>
+                            <View style={styles.FiltrosLayoutBlueBar}></View>
                         </View>
+                        <Text style={styles.HomeTituloPopulares}>Populares<Icon name="star" size={30} color="gold" /></Text>
+                        <Carrosel/>
+                        <PrimeFooter/>
                     </>
                 )}
             </View>

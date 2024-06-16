@@ -80,7 +80,32 @@ const styles = StyleSheet.create({
         width: '100%',
         flexWrap: 'wrap',
     },
-
+    HomeTituloPopulares: {
+        marginTop: 10,
+        borderTopColor: 'black',
+        borderTopWidth: 1,
+        width: '90%',
+        textAlign: 'left',
+        padding: 10,
+        fontSize: 30,
+        fontFamily: 'Poppins_700Bold',
+    },
+    // HomePopularesCarrosel: {
+    //     display: 'flex',
+    //     width: '95%',
+    //     flexDirection: 'row',
+    //     borderColor: 'black',
+    //     borderWidth: 1,
+    //     padding: 10,
+    //     gap: 40,
+    // },
+    // TesteBox: {
+    //     borderColor: 'black',
+    //     borderWidth: 1,
+    //     width: 170,
+    //     height: 200,
+    //     marginRight: 20,
+    // },
 });
 
 export default styles;
