@@ -9,6 +9,8 @@ import firebaseConfig from '../../../Data/firebaseConfig';
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, getReactNativePersistence } from 'firebase/auth';
 
+import CadastroCarregamento from '../../TelaCarregamento'
+
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 

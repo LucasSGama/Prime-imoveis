@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Image, ActivityIndicator, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './HomeCSS';
@@ -9,6 +9,7 @@ import axios from 'axios';
 import ResultadoFiltro from './components/ResultadoFiltro';
 import Carrosel from './components/CarroselImoveis';
 import PrimeFooter from '../../components/PrimeFooter';
+import HomeCarregamento from '../../TelaCarregamento'
 
 export default function Home() {
     const [tipoCompra, setTipoCompra] = useState("Nenhum");
@@ -40,7 +41,7 @@ export default function Home() {
         <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
             <View style={styles.HomeContainer}>
                 {loading ? (
-                    <ActivityIndicator size="large" color="#0000ff" />
+                    <HomeCarregamento loadingText="Carregando Home"/>
                 ) : (
                     <>
                         <HeaderPrime />
