@@ -6,8 +6,8 @@ import styles from './HomeCSS';
 import HeaderPrime from '../../components/HeaderPrime';
 import Banner from '../../../Image/Banner-prime.png';
 import axios from 'axios';
-import ResultadoFiltro from './components/ResultadoFiltro';
-import Carrosel from './components/CarroselImoveis';
+import ResultadoFiltro from './components/Filtragem/ResultadoFiltro';
+import Carrosel from './components/Carrosel/CarroselImoveis';
 import PrimeFooter from '../../components/PrimeFooter';
 import HomeCarregamento from '../../TelaCarregamento'
 
@@ -37,12 +37,14 @@ export default function Home() {
         fetchStates();
     }, []);
 
+    if (loading) {
+        return <HomeCarregamento />;
+    }
+
+    
     return (
         <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
             <View style={styles.HomeContainer}>
-                {loading ? (
-                    <HomeCarregamento loadingText="Carregando Home"/>
-                ) : (
                     <>
                         <HeaderPrime />
                         <Image source={Banner} style={styles.BannerImage} resizeMode="cover" />
@@ -100,7 +102,6 @@ export default function Home() {
                         <Carrosel/>
                         <PrimeFooter/>
                     </>
-                )}
             </View>
         </ScrollView>
     );

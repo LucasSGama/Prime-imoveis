@@ -55,12 +55,12 @@ export default function Index() {
     if (!initializing && fontsLoaded) {
       setTimeout(() => {
         setLoadingComplete(true);
-      }, 3000); // Tempo simulado de carregamento
+      }, 3000); // Tempo simulado de carregamento (3 segundos)
     }
   }, [initializing, fontsLoaded]);
 
   if (!isLoadingComplete) {
-    return <TelaCarregamento loadingText="Carregando aplicativo"/>;
+    return <TelaCarregamento />;
   }
 
   return (

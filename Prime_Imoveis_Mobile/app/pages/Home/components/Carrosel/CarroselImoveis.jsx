@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import imoveis from '../../../../Data/Imóveis';
+import imoveis from '../../../../../Data/Imóveis';
 import ItemImovel from './ItemCarrosel';
 
 export default function CarroselImoveis() {
