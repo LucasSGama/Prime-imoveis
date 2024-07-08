@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Prime_Imoveis_Mobile",
+    "name": "Prime imóveis",
     "slug": "Prime_Imoveis_Mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "/assets/images/Logo-Prime-Prime_Prime.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./image/Logo-Prime-Prime_Prime.png",
+      "image": "/assets/images/Logo-Prime-Prime_Prime.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "/assets/images/Logo-Prime-Prime_Prime.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.Prime_Imoveis_Mobile"
@@ -25,7 +25,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/Logo-Prime-Prime_Prime.png"
     },
     "plugins": [
       "expo-router",
@@ -33,6 +33,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "cbf4c71d-b45d-458a-8c41-4f1399736128"
+      }
     }
   }
 }
