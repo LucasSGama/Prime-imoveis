@@ -4,11 +4,11 @@
     "slug": "Prime_Imoveis_Mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "/assets/images/Logo-Prime-Prime_Prime.png",
+    "icon": "./assets/images/Logo-Prime-Prime_Prime.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "/assets/images/Logo-Prime-Prime_Prime.png",
+      "image": "./assets/images/Logo-Prime-Prime_Prime.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "/assets/images/Logo-Prime-Prime_Prime.png",
+        "foregroundImage": "./assets/images/Logo-Prime-Prime_Prime.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.Prime_Imoveis_Mobile"
